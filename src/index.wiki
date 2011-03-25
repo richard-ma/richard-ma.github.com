@@ -1,11 +1,24 @@
 =Richard Ma's Wiki=
 %toc
 
-==Algorithm==
-    * Sort
-    * Search
-    * Tree
-    * Diagram
-    * Dynamic Programming
+==Algorithm 算法==
+===Sort 排序算法===
+    * Normal Sort 朴素排序算法
+        * [[Insertion Sort]] 插入排序
+        * [[Bubble Sort]] 冒泡排序
+        * [[Selection Sort]] 选择排序
+    * [[Heap Sort]] 堆排序
+    * [[Merge Sort]] 归并排序
+    * [[Quick Sort]] 快速排序
+        * [[Random Quick Sort]] 随机快速排序
+===Search 搜索算法===
+===Tree 树算法===
+===Diagram 图论算法===
+===Dynamic Programming 动态规划===
+
 ==Linux==
-==Notes==
+
+==Notes 便签本==
+TODO:
+# 研究KDE下的壁纸设置方法
+# 熟悉vimwiki的操作
