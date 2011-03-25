@@ -1,9 +1,11 @@
-=Algorithm=
-    * 模拟
-    * 排序
-    * 搜索
-    * 树
-    * 图论
-    * 动态规划
-=Linux=
-=Notes=
+=Richard Ma's Wiki=
+%toc
+
+==Algorithm==
+    * Sort
+    * Search
+    * Tree
+    * Diagram
+    * Dynamic Programming
+==Linux==
+==Notes==
