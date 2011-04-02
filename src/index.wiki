@@ -1,6 +1,17 @@
 =Richard Ma's Wiki=
 %toc
 
+==Vimwiki key shortcut==
+    * <Leader>wf 打开一个新链接
+    * <Leader>we 水平分割打开一个新链接
+    * <Leader>wq 垂直分割打开一个新链接
+    * <Leader>wb 回到前一个链接
+    * <Leader>wn 到下一个链接
+    * <Leader>wp 到上一个链接
+    * <Leader>dd 删除链接
+    * <Leader>rr 重命名链接
+    * <Leader>tt 打开或关闭列表项
+
 ==Algorithm 算法==
 ===Sort 排序算法===
     * Normal Sort 朴素排序算法
