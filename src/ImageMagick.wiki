@@ -1,0 +1,22 @@
+=ImageMagick=
+%toc
+
+==基本工具==
+# convert 转换图像大小和格式
+# identify 描述图像文件的格式和特性
+# mogrify 按规定尺寸制作一个图像
+# composite 组合生成图片
+# montage 创建分开要素的图像
+# compare 比较算数上和视觉上图片的不同
+# display 使用x server现实图像
+# animate 现实动画图片
+# import 窗口捕获
+# conjure MSL(Magick Scripting Language)脚本解释器
+
+==日常用例==
+# [[图片缩放]]
+# [[自动旋转]]
+# [[添加水印]]
+# [[获得exif信息]]
+# [[添加文字注释]]
+# [[添加边框]]
