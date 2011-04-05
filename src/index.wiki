@@ -2,26 +2,26 @@
 %toc
 
 ==Vimwiki key shortcut==
-    * <Leader>wf 打开一个新链接
-    * <Leader>we 水平分割打开一个新链接
-    * <Leader>wq 垂直分割打开一个新链接
-    * <Leader>wb 回到前一个链接
-    * <Leader>wn 到下一个链接
-    * <Leader>wp 到上一个链接
-    * <Leader>dd 删除链接
-    * <Leader>rr 重命名链接
-    * <Leader>tt 打开或关闭列表项
+* <Leader>wf 打开一个新链接
+* <Leader>we 水平分割打开一个新链接
+* <Leader>wq 垂直分割打开一个新链接
+* <Leader>wb 回到前一个链接
+* <Leader>wn 到下一个链接
+* <Leader>wp 到上一个链接
+* <Leader>dd 删除链接
+* <Leader>rr 重命名链接
+* <Leader>tt 打开或关闭列表项
 
 ==Algorithm 算法==
 ===Sort 排序算法===
-    * Normal Sort 朴素排序算法
-        * [[Insertion Sort]] 插入排序
-        * [[Bubble Sort]] 冒泡排序
-        * [[Selection Sort]] 选择排序
-    * [[Heap Sort]] 堆排序
-    * [[Merge Sort]] 归并排序
-    * [[Quick Sort]] 快速排序
-        * [[Random Quick Sort]] 随机快速排序
+* Normal Sort 朴素排序算法
+    * [[Insertion Sort]] 插入排序
+    * [[Bubble Sort]] 冒泡排序
+    * [[Selection Sort]] 选择排序
+* [[Heap Sort]] 堆排序
+* [[Merge Sort]] 归并排序
+* [[Quick Sort]] 快速排序
+    * [[Random Quick Sort]] 随机快速排序
 ===Search 搜索算法===
 ===Tree 树算法===
 ===Diagram 图论算法===
@@ -31,9 +31,12 @@
 ===Bash===
     * [[bash基础]]
     * [[ImageMagick]]
+===Vim===
+    * [[zencoding]]
 
 ==Notes 便签本==
 TODO:
 # [ ] 研究KDE下的壁纸设置方法
 # [ ] 熟悉vimwiki的操作
 # [ ] bash基础
+# [ ] [[EXIF]]格式学习

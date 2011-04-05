@@ -26,137 +26,119 @@
     <div id="content">
         <script type="text/javascript">
             // The following are highly recommended additional parameters. Remove the slashes in front to use.
-            var disqus_identifier = 'index';
-            var disqus_url = 'http://richard-ma.github.com/index.html';
+            var disqus_identifier = 'EXIF';
+            var disqus_url = 'http://richard-ma.github.com/EXIF.html';
         </script>
 
-<h1 id="toc_1"> Richard Ma's Wiki</h1>
+<h1 id="toc_1"> EXIF</h1>
 <div class="toc">
 <ul>
-<li><a href="#toc_1"> Richard Ma's Wiki</a></li>
+<li><a href="#toc_1"> EXIF</a></li>
 <ul>
-<li><a href="#toc_1.1">1. Vimwiki key shortcut</a></li>
-<li><a href="#toc_1.2">2. Algorithm 算法</a></li>
-<ul>
-<li><a href="#toc_1.2.1">2.1. Sort 排序算法</a></li>
-<li><a href="#toc_1.2.2">2.2. Search 搜索算法</a></li>
-<li><a href="#toc_1.2.3">2.3. Tree 树算法</a></li>
-<li><a href="#toc_1.2.4">2.4. Diagram 图论算法</a></li>
-<li><a href="#toc_1.2.5">2.5. Dynamic Programming 动态规划</a></li>
-</ul>
-<li><a href="#toc_1.3">3. Linux</a></li>
-<ul>
-<li><a href="#toc_1.3.1">3.1. Bash</a></li>
-<li><a href="#toc_1.3.2">3.2. Vim</a></li>
-</ul>
-<li><a href="#toc_1.4">4. Notes 便签本</a></li>
+<li><a href="#toc_1.1">1. 信息格式</a></li>
 </ul>
 </ul>
 </div>
 
-<h2 id="toc_1.1">1. Vimwiki key shortcut</h2>
+<h2 id="toc_1.1">1. 信息格式</h2>
 <ul>
 <li>
-&lt;Leader&gt;wf 打开一个新链接
+Image Description 图像描述、来源. 指生成图像的工具
 </li>
 <li>
-&lt;Leader&gt;we 水平分割打开一个新链接
+Artist作者 有些相机可以输入使用者的名字
 </li>
 <li>
-&lt;Leader&gt;wq 垂直分割打开一个新链接
+Make 生产者 指产品生产厂家
 </li>
 <li>
-&lt;Leader&gt;wb 回到前一个链接
+Model 型号 指设备型号
 </li>
 <li>
-&lt;Leader&gt;wn 到下一个链接
+<a href="Orientation.html">Orientation</a>方向 有的相机支持，有的不支持
 </li>
 <li>
-&lt;Leader&gt;wp 到上一个链接
+XResolution/YResolution X/Y方向分辨率 本栏目已有专门条目解释此问题。
 </li>
 <li>
-&lt;Leader&gt;dd 删除链接
+ResolutionUnit分辨率单位 一般为PPI
 </li>
 <li>
-&lt;Leader&gt;rr 重命名链接
+Software软件 显示固件Firmware版本
 </li>
 <li>
-&lt;Leader&gt;tt 打开或关闭列表项
+DateTime日期和时间
+</li>
+<li>
+YCbCrPositioning 色相定位
+</li>
+<li>
+ExifOffsetExif信息位置，定义Exif在信息在文件中的写入，有些软件不显示。
+</li>
+<li>
+ExposureTime 曝光时间 即快门速度
+</li>
+<li>
+FNumber光圈系数
+</li>
+<li>
+ExposureProgram曝光程序 指程序式自动曝光的设置，各相机不同,可能是Sutter Priority（快门优先）、Aperture Priority（快门优先）等等。
+</li>
+<li>
+ISO speed ratings感光度
+</li>
+<li>
+ExifVersionExif版本
+</li>
+<li>
+DateTimeOriginal创建时间
+</li>
+<li>
+DateTimeDigitized数字化时间
+</li>
+<li>
+ComponentsConfiguration图像构造（多指色彩组合方案）
+</li>
+<li>
+CompressedBitsPerPixel(BPP)压缩时每像素色彩位 指压缩程度
+</li>
+<li>
+ExposureBiasValue曝光补偿。
+</li>
+<li>
+MaxApertureValue最大光圈
+</li>
+<li>
+MeteringMode测光方式， 平均式测光、中央重点测光、点测光等。
+</li>
+<li>
+Lightsource光源 指白平衡设置
+</li>
+<li>
+Flash是否使用闪光灯。
+</li>
+<li>
+FocalLength焦距，一般显示镜头物理焦距，有些软件可以定义一个系数，从而显示相当于35mm相机的焦距 MakerNote(User Comment)作者标记、说明、记录
+</li>
+<li>
+FlashPixVersionFlashPix版本 （个别机型支持）
+</li>
+<li>
+ColorSpace色域、色彩空间
+</li>
+<li>
+ExifImageWidth(Pixel X Dimension)图像宽度 指横向像素数
+</li>
+<li>
+ExifImageLength(Pixel Y Dimension)图像高度 指纵向像素数
+</li>
+<li>
+Interoperability IFD通用性扩展项定义指针 和TIFF文件相关，具体含义不详
+</li>
+<li>
+FileSource源文件 Compression压缩比。
 </li>
 </ul>
-
-<h2 id="toc_1.2">2. Algorithm 算法</h2>
-<h3 id="toc_1.2.1">2.1. Sort 排序算法</h3>
-<ul>
-<li>
-Normal Sort 朴素排序算法
-</li>
-<ul>
-<li>
-<a href="Insertion Sort.html">Insertion Sort</a> 插入排序
-</li>
-<li>
-<a href="Bubble Sort.html">Bubble Sort</a> 冒泡排序
-</li>
-<li>
-<a href="Selection Sort.html">Selection Sort</a> 选择排序
-</li>
-</ul>
-<li>
-<a href="Heap Sort.html">Heap Sort</a> 堆排序
-</li>
-<li>
-<a href="Merge Sort.html">Merge Sort</a> 归并排序
-</li>
-<li>
-<a href="Quick Sort.html">Quick Sort</a> 快速排序
-</li>
-<ul>
-<li>
-<a href="Random Quick Sort.html">Random Quick Sort</a> 随机快速排序
-</li>
-</ul>
-</ul>
-<h3 id="toc_1.2.2">2.2. Search 搜索算法</h3>
-<h3 id="toc_1.2.3">2.3. Tree 树算法</h3>
-<h3 id="toc_1.2.4">2.4. Diagram 图论算法</h3>
-<h3 id="toc_1.2.5">2.5. Dynamic Programming 动态规划</h3>
-
-<h2 id="toc_1.3">3. Linux</h2>
-<h3 id="toc_1.3.1">3.1. Bash</h3>
-<ul>
-<li>
-<a href="bash基础.html">bash基础</a>
-</li>
-<li>
-<a href="ImageMagick.html">ImageMagick</a>
-</li>
-</ul>
-<h3 id="toc_1.3.2">3.2. Vim</h3>
-<ul>
-<li>
-<a href="zencoding.html">zencoding</a>
-</li>
-</ul>
-
-<h2 id="toc_1.4">4. Notes 便签本</h2>
-<p>
-<span class="todo">TODO:</span>
-</p>
-<ol>
-<li><input type="checkbox" />
-研究KDE下的壁纸设置方法
-</li>
-<li><input type="checkbox" />
-熟悉vimwiki的操作
-</li>
-<li><input type="checkbox" />
-bash基础
-</li>
-<li><input type="checkbox" />
-<a href="EXIF.html">EXIF</a>格式学习
-</li>
-</ol>
     </div>
 
     <div id="disqus_thread"></div>
