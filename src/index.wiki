@@ -29,7 +29,6 @@
 
 ==Linux==
 ===Bash===
-    * [[bash基础]]
     * [[ImageMagick]]
 ===Vim===
     * [[zencoding]]
