@@ -39,3 +39,4 @@ TODO:
 # [ ] 熟悉vimwiki的操作
 # [ ] bash基础
 # [ ] [[EXIF]]格式学习
+# [ ] [[vim autocomplete]]

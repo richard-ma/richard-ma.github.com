@@ -1,0 +1,17 @@
+=Vim Autocomplete=
+==内置命令==
+
+内置命令使用CTRL—X开启的字模式运行，所以所有自动补全命令均以CTRL-X开头。
+
+* 整行匹配                                          CTRL-X_CTRL-L
+* 文件内匹配                                        CTRL-X_CTRL-N
+* 字典匹配                                          CTRL-X_CTRL-K
+* 文件内和包含文件匹配                      		CTRL-X_CTRL-I
+* 标签匹配                 							CTRL-X_CTRL-]
+* 文件名匹配			                			CTRL-X_CTRL-F
+* 宏定义匹配                         				CTRL-X_CTRL-D
+* Vim命令行匹配 					                CTRL-X_CTRL-V
+* 用户自定义匹配                      				CTRL-X_CTRL-U
+* omni匹配      	                				CTRL-X_CTRL-O
+* 拼写建议          				                CTRL-X_s
+* keywords in 'complete'			            	CTRL-N
