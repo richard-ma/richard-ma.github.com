@@ -32,6 +32,8 @@
     * [[ImageMagick]]
 ===Vim===
     * [[zencoding]]
+===yabasic===
+    * [[yabasic]]
 
 ==Notes 便签本==
 TODO:
