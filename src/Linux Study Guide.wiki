@@ -4,11 +4,14 @@
 ==学习方式==
 ===任务驱动===
 文档模式
-    * man
+    * manual
         # RTFM Read The Fucking Manual.
+        # manpage
+        # online manual
     * wiki
         # 官方wiki
         # wikipedia
+    * Google大神
     * 源码学习
         # source/README
         # source/test
@@ -25,8 +28,10 @@
         # emacs: org-mode
         # WEB: mediawiki
     * Blog
-        # RSS 阅读器分类阅读
+        # 使用tag分类
 ===灵光一闪===
     * microBlog
     * 小本子和笔
     * 国外的好创意
+==提问的智慧==
+
