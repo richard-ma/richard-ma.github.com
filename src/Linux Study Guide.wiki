@@ -1,0 +1,37 @@
+=Linux Study Guide=
+%toc
+
+==学习方式==
+===任务驱动===
+文档模式
+    * manual
+        # RTFM Read The Fucking Manual.
+        # manpage
+        # online manual
+    * wiki
+        # 官方wiki
+        # wikipedia
+    * Google大神
+    * 源码学习
+        # source/README
+        # source/test
+        # source/demo
+        # source/src
+互动模式
+    * IRC
+    * 论坛
+    * 邮件列表
+    * 线下活动的讨论和交流
+===系统总结===
+    * 个人wiki
+        # vim: vimwiki
+        # emacs: org-mode
+        # WEB: mediawiki
+    * Blog
+        # 使用tag分类
+===灵光一闪===
+    * microBlog
+    * 小本子和笔
+    * 国外的好创意
+==提问的智慧==
+
