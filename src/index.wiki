@@ -37,6 +37,8 @@
 ===yabasic===
     * [[yabasic]]
 
+[[Wordpress]]
+
 ==Notes 便签本==
 TODO:
 # [ ] 研究KDE下的壁纸设置方法
@@ -45,3 +47,4 @@ TODO:
 # [ ] [[EXIF]]格式学习
 # [ ] [[vim autocomplete]]
 # [ ] [[TJLUG Blog]]
+# [ ] [[Math]]
