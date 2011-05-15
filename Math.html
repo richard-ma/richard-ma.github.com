@@ -65,6 +65,8 @@
 <li><a href="#toc_1.23.4">23.4. 经典问题</a></li>
 <ul>
 <li><a href="#toc_1.23.4.1">23.4.1. Ramsey问题</a></li>
+<li><a href="#toc_1.23.4.2">23.4.2. Ramsey数</a></li>
+<li><a href="#toc_1.23.4.3">23.4.3. Schur定理</a></li>
 </ul>
 <li><a href="#toc_1.23.5">23.5. NOIP相关试题</a></li>
 </ul>
@@ -172,11 +174,30 @@
 1958年6-7月号美国的《数学月刊》上登载着这样一个有趣的问题:“任何6个人的聚会,其中总会有3个人相互认识,或3个人相互不认识”。
 这就是著名的Ramsey问题。
 </blockquote>
+<blockquote>
+用6个顶点表示6个人,对这6个人两两连一条线, 这样得到一个完全图K6。将两个互相认识的人之间的连线染成红色,不相识的人之间的连线染成蓝色。上述问题转化为下述命题:
+对6个顶点的完全图K6任意进行红、蓝2-边染色,则图中一定存在一个同色三角形(即存在一个红色三角形或一个蓝色三角形)。
+</blockquote>
+    
+<h4 id="toc_1.23.4.2">23.4.2. Ramsey数</h4>
+<blockquote>
+给定一对正整数a、b,存在(1930,Ramsey)最小的正整数r(a,b), 对r(a,b)个顶点的完全图的边任意红、蓝着色,存在a个顶点的红边完全图或b个顶点的蓝边完全图。这个正整数称为Ramsey数。
+例如: r(3,3)=6, r(4,3)=9
+</blockquote>
+    
+<h4 id="toc_1.23.4.3">23.4.3. Schur定理</h4>
+<blockquote>
+对任意一个正整数n,都存在一个整数f<sub><small>n</small></sub>,使得无论如何将集合{1,2,...,f<sub><small>n</small></sub>}划分成n个子集合,总有一个子集合中有三个数满足方程(x+y=z)。
+</blockquote>
+<blockquote>
+设{S<sub><small>1</small></sub>,S<sub><small>2</small></sub>,...,S<sub><small>n</small></sub>}是集合{1,2,...,r<sub><small>n</small></sub>}的任意划分,这里r<sub><small>n</small></sub>=r(3,3,...,3)。则存在某个S<sub><small>i</small></sub>,S<sub><small>i</small></sub>中有三个数x,y,z满足(x+y=z)。
+</blockquote>
+
     
 <h3 id="toc_1.23.5">23.5. NOIP相关试题</h3>
 <ul>
 <li>
-NOIP2010 2水果
+NOIP2010天津小学组 - 水果
 </li>
 </ul>
 
