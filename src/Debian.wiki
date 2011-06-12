@@ -8,7 +8,48 @@
 
 ==基础软件==
 ===sudo===
+    * 使用apt-get安装
     * 安装后，sudo组内的用户可以使用该命令
     * 将用户tom添加到sudo组的方法
 
     `# usermod -aG sudo tom`
+    
+    * 完成后即退出root账户，进入自己的账户，使用sudo获取root权限
+
+===编辑器和个性化配置文件===
+    * 使用apt-get安装
+    * 安装git，从github上获取个性化配置文件
+    * 运行update脚本
+    * logout再login以使得脚本生效
+
+===ATI HD 5430 显卡驱动===
+    * fglrx-driver包是驱动程序
+    * fglrx-control是设置工具，基于QT4，因为想用openbox，就没装这个
+    * 驱动需要DKMS编译，所以需要内核头文件，安装linux-headers-{内核版本号}
+
+===broadcom 4313网卡驱动===
+    * brcm80211是驱动程序（另外还支持Broadcom 43224 43225）
+    * wireless-tools是设置程序
+    * wpa_supplicant是WPA验证用到的程序，默认的iwconfig不支持WPA认证
+    {{{http://wiki.debian.org/WiFi/HowToUse#WPA-PSK_and_WPA2-PSK}}}
+====无线网卡使用====
+    # 扫描周围的接入点
+
+    `$ sudo iwconfig wlan0 scan`
+
+    # 配置/etc/network/interfaces中的wlan0
+    # 开启无线网卡
+
+    `$ sudo ifconfig wlan0 up`
+
+==配置桌面环境==
+===Xorg===
+===Openbox===
+    * 创建~/.xinitrc，写入如下内容
+
+    `exec openbox-session`
+    
+===chromium-browser===
+    * Google Chrome的开源版本
+
+===中文输入发===
