@@ -36,6 +36,8 @@
     * [[Linux Study Guide]]
 ===yabasic===
     * [[yabasic]]
+===Destribution===
+    * [[Debian]]
 
 [[Wordpress]]
 
