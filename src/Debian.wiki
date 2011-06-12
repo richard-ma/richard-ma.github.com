@@ -52,4 +52,4 @@
 ===chromium-browser===
     * Google Chrome的开源版本
 
-===中文输入发===
+===中文输入法===
