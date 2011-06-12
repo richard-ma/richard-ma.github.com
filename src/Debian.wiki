@@ -31,7 +31,7 @@
     * brcm80211是驱动程序（另外还支持Broadcom 43224 43225）
     * wireless-tools是设置程序
     * wpa_supplicant是WPA验证用到的程序，默认的iwconfig不支持WPA认证
-    {{{http://wiki.debian.org/WiFi/HowToUse#WPA-PSK_and_WPA2-PSK}}}
+    [http://wiki.debian.org/WiFi/HowToUse#WPA-PSK_and_WPA2-PSK]
 ====无线网卡使用====
     # 扫描周围的接入点
 
@@ -56,4 +56,4 @@
     * Fcitx 这个包在backports里，需要添加sohu的backports
 
     `deb http://mirrors.sohu.com/debian-backports/ squeeze-backports main non-free contrib`
-    {{{http://backports.debian.org/Instructions/}}}
+    [http://backports.debian.org/Instructions/]
