@@ -53,3 +53,6 @@
     * Google Chrome的开源版本
 
 ===中文输入法===
+    * Fcitx 这个包在backports里，需要添加sohu的backports
+
+    `deb http://mirrors.sohu.com/debian-backports/ squeeze-backports main non-free contrib`
