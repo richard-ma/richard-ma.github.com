@@ -5,6 +5,7 @@
 # [X] ibus与google-chrome兼容
 # [ ] 音响的噪声去除
 # [ ] 蓝牙驱动
+# [X] 截图工具 [http://hi.baidu.com/lycheecar/blog/item/0a8dfb555ad43846574e00ce.html]
 
 ==分区格式化==
     * 分区时将/boot单独分区，并设置启动标记，其他分为逻辑分区
