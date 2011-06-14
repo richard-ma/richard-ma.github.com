@@ -44,7 +44,7 @@
 ==Notes 便签本==
 TODO:
 # [ ] 研究KDE下的壁纸设置方法
-# [ ] 熟悉vimwiki的操作
+# [X] 熟悉vimwiki的操作
 # [ ] bash基础
 # [ ] [[EXIF]]格式学习
 # [ ] [[vim autocomplete]]

@@ -1,6 +1,9 @@
 =安装=
 %toc
 
+==Todo==
+# [ ] ibus与google-chrome兼容
+
 ==分区格式化==
     * 分区时将/boot单独分区，并设置启动标记，其他分为逻辑分区
     * 在逻辑分区上创建LVM Group，方便以后调整分区大小
@@ -60,4 +63,11 @@
     `deb http://mirrors.sohu.com/debian-backports/ squeeze-backports main non-free contrib`
     
     [http://backports.debian.org/Instructions/]
+
+    * ibus Ubuntu的御用输入法，兼容性很好，不过现在对google-chrome还不兼容，需要调整。
+    
+    技巧：因为vim的模式命令在中文输入法下无效，所以在输入汉字时，vim显得有些笨重。
+    总需要在输入法下来回切换，很烦人。现在可以通过ibus设置程序，将左Shift设置为
+    中英文切换键，这样就不用总Ctrl+Space了，按下左Shift即可将输入法切换到英文状态
+    vim命令任意用，再一按就切换回中文。
 
