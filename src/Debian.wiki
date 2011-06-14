@@ -2,7 +2,7 @@
 %toc
 
 ==Todo==
-# [ ] ibus与google-chrome兼容
+# [X] ibus与google-chrome兼容
 
 ==分区格式化==
     * 分区时将/boot单独分区，并设置启动标记，其他分为逻辑分区
