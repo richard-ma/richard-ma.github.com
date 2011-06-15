@@ -3,8 +3,9 @@
 
 ==Todo==
 # [X] ibus与google-chrome兼容
-# [ ] 音响的噪声去除
+# [X] 音响的噪声去除 [http://blogold.chinaunix.net/u/20515/showart_145694.html]
 # [ ] 蓝牙驱动
+# [ ] 多显示器支持
 # [X] 截图工具 [http://hi.baidu.com/lycheecar/blog/item/0a8dfb555ad43846574e00ce.html]
 
 ==分区格式化==
@@ -80,3 +81,6 @@
 
 ====git====
     * 还是git好，包就叫这个名字，装上就能用。
+
+===BlueTooth===
+    * 驱动：bluez 这是Linux官方的蓝牙协议栈
