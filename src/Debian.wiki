@@ -84,3 +84,8 @@
 
 ===BlueTooth===
     * 驱动：bluez 这是Linux官方的蓝牙协议栈
+
+===源选择===
+    * 安装netselect-apt
+    * 备份/etc/apt/source.list
+    * 运行sudo netselect-apt -s -n testing 选择最快的更新源
