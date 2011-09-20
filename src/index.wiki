@@ -40,6 +40,7 @@
     * [[Debian]]
 
 [[Wordpress]]
+[[virtualbox networking adapter]]
 
 ==Notes 便签本==
 TODO:
