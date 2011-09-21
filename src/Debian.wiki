@@ -1,0 +1,91 @@
+=安装=
+%toc
+
+==Todo==
+# [X] ibus与google-chrome兼容
+# [X] 音响的噪声去除 [http://blogold.chinaunix.net/u/20515/showart_145694.html]
+# [ ] 蓝牙驱动
+# [ ] 多显示器支持
+# [X] 截图工具 [http://hi.baidu.com/lycheecar/blog/item/0a8dfb555ad43846574e00ce.html]
+
+==分区格式化==
+    * 分区时将/boot单独分区，并设置启动标记，其他分为逻辑分区
+    * 在逻辑分区上创建LVM Group，方便以后调整分区大小
+    * /和/home以及swap可以分为同一个LVM Group里的三个逻辑分区
+
+==基础软件==
+===sudo===
+    * 使用apt-get安装
+    * 安装后，sudo组内的用户可以使用该命令
+    * 将用户tom添加到sudo组的方法
+
+    `# usermod -aG sudo tom`
+    
+    * 完成后即退出root账户，进入自己的账户，使用sudo获取root权限
+
+===编辑器和个性化配置文件===
+    * 使用apt-get安装
+    * 安装git，从github上获取个性化配置文件
+    * 运行update脚本
+    * logout再login以使得脚本生效
+
+===ATI HD 5430 显卡驱动===
+    * fglrx-driver包是驱动程序
+    * fglrx-control是设置工具，基于QT4，因为想用openbox，就没装这个
+    * 驱动需要DKMS编译，所以需要内核头文件，安装linux-headers-{内核版本号}
+
+===broadcom 4313网卡驱动===
+    * brcm80211是驱动程序（另外还支持Broadcom 43224 43225）
+    * wireless-tools是设置程序
+    * wpa_supplicant是WPA验证用到的程序，默认的iwconfig不支持WPA认证
+
+    [http://wiki.debian.org/WiFi/HowToUse#WPA-PSK_and_WPA2-PSK]
+
+====无线网卡使用====
+    # 扫描周围的接入点
+
+    `$ sudo iwconfig wlan0 scan`
+
+    # 配置/etc/network/interfaces中的wlan0
+    # 开启无线网卡
+
+    `$ sudo ifconfig wlan0 up`
+
+==配置桌面环境==
+===Xorg===
+===Openbox===
+    * 创建~/.xinitrc，写入如下内容
+
+    `exec openbox-session`
+    
+===chromium-browser===
+    * Google Chrome的开源版本
+
+===中文输入法===
+    * Fcitx 这个包在backports里，需要添加sohu的backports
+
+    `deb http://mirrors.sohu.com/debian-backports/ squeeze-backports main non-free contrib`
+    
+    [http://backports.debian.org/Instructions/]
+
+    * ibus Ubuntu的御用输入法，兼容性很好，不过现在对google-chrome还不兼容，需要调整。
+    
+    技巧：因为vim的模式命令在中文输入法下无效，所以在输入汉字时，vim显得有些笨重。
+    总需要在输入法下来回切换，很烦人。现在可以通过ibus设置程序，将左Shift设置为
+    中英文切换键，这样就不用总Ctrl+Space了，按下左Shift即可将输入法切换到英文状态
+    vim命令任意用，再一按就切换回中文。
+
+===安装版本控制系统===
+====svn====
+    * 请记住svn的全程是Subversion！安装的时候要写全程，否则apt大牛不理你！
+
+====git====
+    * 还是git好，包就叫这个名字，装上就能用。
+
+===BlueTooth===
+    * 驱动：bluez 这是Linux官方的蓝牙协议栈
+
+===源选择===
+    * 安装netselect-apt
+    * 备份/etc/apt/source.list
+    * 运行sudo netselect-apt -s -n testing 选择最快的更新源

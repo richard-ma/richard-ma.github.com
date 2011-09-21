@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<link rel="Stylesheet" type="text/css" href="css/style.css" /> 
+<title>Richard Ma's personal Wiki</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+</head> 
+<body> 
+    <div id="navbar">
+    	<ul>
+    		<li> <a class="activated" href="index.html">Wiki</a> </li>
+    		<li> <a href="http://www.richardma.org">Blog</a> </li>
+    		<li> <a href="https://github.com/richard-ma">GitHub</a> </li>
+    		<li class="search">
+                <form action="http://www.google.com/search" method="get">
+                    <input name="sitesearch" value="http://richard-ma.github.com/" type="hidden" />
+                    <input name="hl" value="zh-CN" type="hidden" />
+                    <input name="ie" value="UTF-8" type="hidden" />
+                    <input size="25" name="q" id="query" value="Search..." type="text" 
+                        onfocus="if( this.value=='Search...') {this.value='' };" 
+                        onblur="if( this.value=='') {this.value='Search...' };" />
+                </form>
+            </li>
+    	</ul>
+    </div>
+    <div id="content">
+        <script type="text/javascript">
+            // The following are highly recommended additional parameters. Remove the slashes in front to use.
+            var disqus_identifier = 'Debian';
+            var disqus_url = 'http://richard-ma.github.com/Debian.html';
+        </script>
+
+<h1 id="toc_1"> 安装</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_1"> 安装</a></li>
+<ul>
+<li><a href="#toc_1.1">1. Todo</a></li>
+<li><a href="#toc_1.2">2. 分区格式化</a></li>
+<li><a href="#toc_1.3">3. 基础软件</a></li>
+<ul>
+<li><a href="#toc_1.3.1">3.1. sudo</a></li>
+<li><a href="#toc_1.3.2">3.2. 编辑器和个性化配置文件</a></li>
+<li><a href="#toc_1.3.3">3.3. ATI HD 5430 显卡驱动</a></li>
+<li><a href="#toc_1.3.4">3.4. broadcom 4313网卡驱动</a></li>
+<ul>
+<li><a href="#toc_1.3.4.1">3.4.1. 无线网卡使用</a></li>
+</ul>
+</ul>
+<li><a href="#toc_1.4">4. 配置桌面环境</a></li>
+<ul>
+<li><a href="#toc_1.4.1">4.1. Xorg</a></li>
+<li><a href="#toc_1.4.2">4.2. Openbox</a></li>
+<li><a href="#toc_1.4.3">4.3. chromium-browser</a></li>
+<li><a href="#toc_1.4.4">4.4. 中文输入法</a></li>
+<li><a href="#toc_1.4.5">4.5. 安装版本控制系统</a></li>
+<ul>
+<li><a href="#toc_1.4.5.1">4.5.1. svn</a></li>
+<li><a href="#toc_1.4.5.2">4.5.2. git</a></li>
+</ul>
+<li><a href="#toc_1.4.6">4.6. BlueTooth</a></li>
+<li><a href="#toc_1.4.7">4.7. 源选择</a></li>
+</ul>
+</ul>
+</ul>
+</div>
+
+<h2 id="toc_1.1">1. Todo</h2>
+<ol>
+<li><del><input type="checkbox" checked />
+ibus与google-chrome兼容
+</del></li>
+<li><del><input type="checkbox" checked />
+音响的噪声去除 <a href="http://blogold.chinaunix.net/u/20515/showart_145694.html">http://blogold.chinaunix.net/u/20515/showart_145694.html</a>
+</del></li>
+<li><input type="checkbox" />
+蓝牙驱动
+</li>
+<li><input type="checkbox" />
+多显示器支持
+</li>
+<li><del><input type="checkbox" checked />
+截图工具 <a href="http://hi.baidu.com/lycheecar/blog/item/0a8dfb555ad43846574e00ce.html">http://hi.baidu.com/lycheecar/blog/item/0a8dfb555ad43846574e00ce.html</a>
+</del></li>
+</ol>
+
+<h2 id="toc_1.2">2. 分区格式化</h2>
+<ul>
+<li>
+分区时将/boot单独分区，并设置启动标记，其他分为逻辑分区
+</li>
+<li>
+在逻辑分区上创建LVM Group，方便以后调整分区大小
+</li>
+<li>
+/和/home以及swap可以分为同一个LVM Group里的三个逻辑分区
+</li>
+</ul>
+
+<h2 id="toc_1.3">3. 基础软件</h2>
+<h3 id="toc_1.3.1">3.1. sudo</h3>
+<ul>
+<li>
+使用apt-get安装
+</li>
+<li>
+安装后，sudo组内的用户可以使用该命令
+</li>
+<li>
+将用户tom添加到sudo组的方法
+</li>
+</ul>
+<blockquote>
+<code># usermod -aG sudo tom</code>
+</blockquote>
+    
+<ul>
+<li>
+完成后即退出root账户，进入自己的账户，使用sudo获取root权限
+</li>
+</ul>
+
+<h3 id="toc_1.3.2">3.2. 编辑器和个性化配置文件</h3>
+<ul>
+<li>
+使用apt-get安装
+</li>
+<li>
+安装git，从github上获取个性化配置文件
+</li>
+<li>
+运行update脚本
+</li>
+<li>
+logout再login以使得脚本生效
+</li>
+</ul>
+
+<h3 id="toc_1.3.3">3.3. ATI HD 5430 显卡驱动</h3>
+<ul>
+<li>
+fglrx-driver包是驱动程序
+</li>
+<li>
+fglrx-control是设置工具，基于QT4，因为想用openbox，就没装这个
+</li>
+<li>
+驱动需要DKMS编译，所以需要内核头文件，安装linux-headers-{内核版本号}
+</li>
+</ul>
+
+<h3 id="toc_1.3.4">3.4. broadcom 4313网卡驱动</h3>
+<ul>
+<li>
+brcm80211是驱动程序（另外还支持Broadcom 43224 43225）
+</li>
+<li>
+wireless-tools是设置程序
+</li>
+<li>
+wpa_supplicant是WPA验证用到的程序，默认的iwconfig不支持WPA认证
+</li>
+</ul>
+<blockquote>
+<a href="http://wiki.debian.org/WiFi/HowToUse#WPA-PSK_and_WPA2-PSK">http://wiki.debian.org/WiFi/HowToUse#WPA-PSK_and_WPA2-PSK</a>
+</blockquote>
+
+<h4 id="toc_1.3.4.1">3.4.1. 无线网卡使用</h4>
+<ol>
+<li>
+扫描周围的接入点
+</li>
+</ol>
+<blockquote>
+<code>$ sudo iwconfig wlan0 scan</code>
+</blockquote>
+
+<ol>
+<li>
+配置/etc/network/interfaces中的wlan0
+</li>
+<li>
+开启无线网卡
+</li>
+</ol>
+<blockquote>
+<code>$ sudo ifconfig wlan0 up</code>
+</blockquote>
+
+<h2 id="toc_1.4">4. 配置桌面环境</h2>
+<h3 id="toc_1.4.1">4.1. Xorg</h3>
+<h3 id="toc_1.4.2">4.2. Openbox</h3>
+<ul>
+<li>
+创建~/.xinitrc，写入如下内容
+</li>
+</ul>
+<blockquote>
+<code>exec openbox-session</code>
+</blockquote>
+    
+<h3 id="toc_1.4.3">4.3. chromium-browser</h3>
+<ul>
+<li>
+Google Chrome的开源版本
+</li>
+</ul>
+
+<h3 id="toc_1.4.4">4.4. 中文输入法</h3>
+<ul>
+<li>
+Fcitx 这个包在backports里，需要添加sohu的backports
+</li>
+</ul>
+<blockquote>
+<code>deb http://mirrors.sohu.com/debian-backports/ squeeze-backports main non-free contrib</code>
+</blockquote>
+<blockquote>
+<a href="http://backports.debian.org/Instructions/">http://backports.debian.org/Instructions/</a>
+</blockquote>
+
+<ul>
+<li>
+ibus Ubuntu的御用输入法，兼容性很好，不过现在对google-chrome还不兼容，需要调整。
+</li>
+</ul>
+<blockquote>
+技巧：因为vim的模式命令在中文输入法下无效，所以在输入汉字时，vim显得有些笨重。
+总需要在输入法下来回切换，很烦人。现在可以通过ibus设置程序，将左Shift设置为
+中英文切换键，这样就不用总Ctrl+Space了，按下左Shift即可将输入法切换到英文状态
+vim命令任意用，再一按就切换回中文。
+</blockquote>
+
+<h3 id="toc_1.4.5">4.5. 安装版本控制系统</h3>
+<h4 id="toc_1.4.5.1">4.5.1. svn</h4>
+<ul>
+<li>
+请记住svn的全程是Subversion！安装的时候要写全程，否则apt大牛不理你！
+</li>
+</ul>
+
+<h4 id="toc_1.4.5.2">4.5.2. git</h4>
+<ul>
+<li>
+还是git好，包就叫这个名字，装上就能用。
+</li>
+</ul>
+
+<h3 id="toc_1.4.6">4.6. BlueTooth</h3>
+<ul>
+<li>
+驱动：bluez 这是Linux官方的蓝牙协议栈
+</li>
+</ul>
+
+<h3 id="toc_1.4.7">4.7. 源选择</h3>
+<ul>
+<li>
+安装netselect-apt
+</li>
+<li>
+备份/etc/apt/source.list
+</li>
+<li>
+运行sudo netselect-apt -s -n testing 选择最快的更新源
+</li>
+</ul>
+    </div>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'richard_ma'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+ 
+</body> 
+<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/SyntaxHighlighter.css"></link>
+<script language="javascript" src="syntaxhighlighter/js/shCore.js"></script>
+<script language="javascript" src="syntaxhighlighter/js/shBrushJava.js"></script>
+<script language="javascript" src="syntaxhighlighter/js/shBrushXml.js"></script>
+<script language="javascript" src="syntaxhighlighter/js/shBrushPython.js"></script>
+<script language="javascript" src="syntaxhighlighter/js/shBrushCpp.js"></script>
+<script language="javascript" src="syntaxhighlighter/js/shBrushSql.js"></script>
+<script language="javascript">
+dp.SyntaxHighlighter.ClipboardSwf = 'syntaxhighlighter/clipboard.swf';
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</html> 

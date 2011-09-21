@@ -8,6 +8,7 @@
 * <Leader>wb 回到前一个链接
 * <Leader>wn 到下一个链接
 * <Leader>wp 到上一个链接
+* <Leader>wm 将todo的项目标记为完成或取消标记
 * <Leader>dd 删除链接
 * <Leader>rr 重命名链接
 * <Leader>tt 打开或关闭列表项
@@ -41,12 +42,18 @@
     * [[Linux Study Guide]]
 ===yabasic===
     * [[yabasic]]
+===Destribution===
+    * [[Debian]]
+
+[[Wordpress]]
+[[virtualbox networking adapter]]
 
 ==Notes 便签本==
 TODO:
 # [ ] 研究KDE下的壁纸设置方法
-# [ ] 熟悉vimwiki的操作
+# [X] 熟悉vimwiki的操作
 # [ ] bash基础
 # [ ] [[EXIF]]格式学习
 # [ ] [[vim autocomplete]]
 # [ ] [[TJLUG Blog]]
+# [ ] [[Math]]

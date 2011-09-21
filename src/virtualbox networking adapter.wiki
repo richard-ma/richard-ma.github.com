@@ -1,0 +1,8 @@
+=virtualbox networking adapter=
+
+* 每个虚拟机最多可以配置8个网卡（4个通过GUI调整，8个都可通过modifyvm命令调整）
+* 网卡的状态
+    # 不启用
+    # NAT (default)
+    # 桥接 （将Guest作为网络中和Host同级的一台机器接入）
+    # 内部连接 （）
