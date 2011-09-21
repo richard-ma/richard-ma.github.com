@@ -12,6 +12,10 @@
 * <Leader>rr 重命名链接
 * <Leader>tt 打开或关闭列表项
 
+==数学==
+===三年级===
+* [[加法原理和乘法原理]]
+
 ==Algorithm 算法==
 ===Sort 排序算法===
 * Normal Sort 朴素排序算法
@@ -30,6 +34,7 @@
 ==Linux==
 ===Bash===
     * [[ImageMagick]]
+    * [[coreutils]]
 ===Vim===
     * [[zencoding]]
 ===TJLUG Presentation===
