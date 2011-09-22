@@ -57,3 +57,8 @@ TODO:
 # [ ] [[vim autocomplete]]
 # [ ] [[TJLUG Blog]]
 # [ ] [[Math]]
+
+==Idea==
+* 虚拟机作用
+    # 模拟复杂网络环境
+    # 无痛体验测试软件
