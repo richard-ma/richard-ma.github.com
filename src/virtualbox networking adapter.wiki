@@ -3,6 +3,12 @@
 * 每个虚拟机最多可以配置8个网卡（4个通过GUI调整，8个都可通过modifyvm命令调整）
 * 网卡的状态
     # 不启用
-    # NAT (default)
-    # 桥接 （将Guest作为网络中和Host同级的一台机器接入）
-    # 内部连接 （）
+    # NAT：默认选项
+        相当于guest通过路由接到外网，可以透明的链接外部网络，但当外部网络访问此guest时，就就只能做端口映射了。
+    # 桥接：将Guest作为网络中和Host同级的一台机器接入
+    # 内部连接： 独立的虚拟网络，但是不可以和host以及外部真实网络连接
+    # host-only： host和guest之间的独立网络
+    # 通用网络：可以连接其他host的guest
+        * UDP隧道
+        * VDE(Virtual Destributed Ethernet) 需要源码编译，Oracle提供的二进制包不包括此功能
+
