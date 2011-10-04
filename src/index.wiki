@@ -33,6 +33,7 @@
     * [[ImageMagick]]
 ===Vim===
     * [[zencoding]]
+    * [[neocomplcache]]
 ===TJLUG Presentation===
     * [[Linux Study Guide]]
 ===yabasic===
