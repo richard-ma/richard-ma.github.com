@@ -1,7 +1,7 @@
-=Richard Ma's Wiki=
+%title Richard Ma's Wiki
 %toc
 
-==Vimwiki key shortcut==
+=Vimwiki key shortcut=
 * <Leader>wf 打开一个新链接
 * <Leader>we 水平分割打开一个新链接
 * <Leader>wq 垂直分割打开一个新链接
@@ -9,16 +9,16 @@
 * <Leader>wn 到下一个链接
 * <Leader>wp 到上一个链接
 * <Leader>wm 将todo的项目标记为完成或取消标记
-* <Leader>dd 删除链接
-* <Leader>rr 重命名链接
-* <Leader>tt 打开或关闭列表项
+* <Leader>wd 删除链接
+* <Leader>wr 重命名链接
+* <Leader>wt 打开或关闭列表项
 
-==数学==
-===三年级===
+=数学=
+==三年级==
 * [[加法原理和乘法原理]]
 
-==Algorithm 算法==
-===Sort 排序算法===
+=Algorithm 算法=
+==Sort 排序算法==
 * Normal Sort 朴素排序算法
     * [[Insertion Sort]] 插入排序
     * [[Bubble Sort]] 冒泡排序
@@ -27,39 +27,41 @@
 * [[Merge Sort]] 归并排序
 * [[Quick Sort]] 快速排序
     * [[Random Quick Sort]] 随机快速排序
-===Search 搜索算法===
-===Tree 树算法===
-===Diagram 图论算法===
-===Dynamic Programming 动态规划===
+==Search 搜索算法==
+==Tree 树算法==
+==Diagram 图论算法==
+==Dynamic Programming 动态规划==
 
-==Linux==
-===Bash===
+=Linux=
+==Bash==
     * [[ImageMagick]]
     * [[coreutils]]
-===Vim===
+==Vim==
     * [[zencoding]]
     * [[neocomplcache]]
-===TJLUG Presentation===
+==TJLUG Presentation==
     * [[Linux Study Guide]]
-===yabasic===
+==yabasic==
     * [[yabasic]]
-===Destribution===
+==Destribution==
     * [[Debian]]
 
 [[Wordpress]]
 [[virtualbox networking adapter]]
 
-==Notes 便签本==
+=Notes 便签本=
 TODO:
 # [ ] 研究KDE下的壁纸设置方法
 # [X] 熟悉vimwiki的操作
-# [ ] bash基础
+# [X] bash基础
 # [ ] [[EXIF]]格式学习
 # [ ] [[vim autocomplete]]
 # [ ] [[TJLUG Blog]]
 # [ ] [[Math]]
 
-==Idea==
+=Idea=
 * 虚拟机作用
     # 模拟复杂网络环境
     # 无痛体验测试软件
+=Diary=
+[[diary/diary]]
