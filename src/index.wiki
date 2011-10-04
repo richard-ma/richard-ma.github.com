@@ -1,6 +1,5 @@
-%title Richard Ma's Wiki
 %toc
-
+%title Richard Ma's Wiki
 =Vimwiki key shortcut=
 * <Leader>wf 打开一个新链接
 * <Leader>we 水平分割打开一个新链接
