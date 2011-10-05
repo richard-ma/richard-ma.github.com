@@ -1,0 +1,17 @@
+%toc
+
+= vim mode =
+* Normal mode
+    普通的命令模式：这个模式下不可以编辑文本，所有按键被视为命令。
+* Insert mode
+    插入模式：此模式下所有字符被视为输入字符，记录到文本中。可使用Ctrl和Alt等组合键发布命令。
+* Visual mode
+    可视模式：对一组数据进行操作，Normal下v或V，亦或Ctrl-v命令进入此模式。
+* Select mode
+    选择模式：只在SnipMate插件中见过，可对特定文本做替换操作。
+* Command-line mode
+    命令行模式：执行特殊命令，例如bash调用，搜索等。按:或/亦或?进入此模式。
+* Operator-pending mode
+    操作等待模式：组合命令中等待下一个操作符时处于此模式。例如按下a，d，y等命令时。
+* Other mode
+    所有其他的模式均由以上模式组合而来。
