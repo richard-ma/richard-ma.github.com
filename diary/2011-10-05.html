@@ -26,17 +26,113 @@
     <div id="content">
         <script type="text/javascript">
             // The following are highly recommended additional parameters. Remove the slashes in front to use.
-            var disqus_identifier = 'diary';
-            var disqus_url = 'http://richard-ma.github.com/diary.html';
+            var disqus_identifier = 'vim mapping';
+            var disqus_url = 'http://richard-ma.github.com/vim mapping.html';
         </script>
 
-<h1 id="toc_1"> Diary</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_1"> The kinds of vim mapping</a></li>
+</ul>
+</div>
+
+<h1 id="toc_1"> The kinds of vim mapping</h1>
 <table>
 <tr>
-<td><a href="2011-10-05.html">2011-10-05</a></td>
-<td><a href="2011-10-04.html">2011-10-04</a></td>
-<td><a href="2011-04-09.html">2011-04-09</a></td>
-<td><a href="2011-04-03.html">2011-04-03</a></td>
+<th><strong>nested/recursive</strong></th>
+<th><strong>NOT</strong> nested/recursive</th>
+<th><strong>Remove</strong> mapping</th>
+<th><strong>Remove All</strong> mapping</th>
+<th><strong>List All</strong> mapping</th>
+<th><strong>List key</strong> mapping</th>
+</tr>
+<tr>
+<th>map {lhs} {rhs}</th>
+<th>noremap {lhs} {rhs}</th>
+<th>unmap {lhs}</th>
+<th>mapclear</th>
+<th>map</th>
+<th>map {lhs}</th>
+</tr>
+<tr>
+<th>nmap {lhs} {rhs}</th>
+<th>nnoremap {lhs} {rhs}</th>
+<th>nunmap {lhs}</th>
+<th>nmapclear</th>
+<th>nmap</th>
+<th>nmap {lhs}</th>
+</tr>
+<tr>
+<th>vmap {lhs} {rhs}</th>
+<th>vnoremap {lhs} {rhs}</th>
+<th>vunmap {lhs}</th>
+<th>vmapclear</th>
+<th>vmap</th>
+<th>vmap {lhs}</th>
+</tr>
+<tr>
+<th>xmap {lhs} {rhs}</th>
+<th>xnoremap {lhs} {rhs}</th>
+<th>xunmap {lhs}</th>
+<th>xmapclear</th>
+<th>xmap</th>
+<th>xmap {lhs}</th>
+</tr>
+<tr>
+<th>smap {lhs} {rhs}</th>
+<th>snoremap {lhs} {rhs}</th>
+<th>sunmap {lhs}</th>
+<th>smapclear</th>
+<th>smap</th>
+<th>smap {lhs}</th>
+</tr>
+<tr>
+<th>omap {lhs} {rhs}</th>
+<th>onoremap {lhs} {rhs}</th>
+<th>ounmap {lhs}</th>
+<th>omapclear</th>
+<th>omap</th>
+<th>omap {lhs}</th>
+</tr>
+<tr>
+<th>map! {lhs} {rhs}</th>
+<th>noremap! {lhs} {rhs}</th>
+<th>unmap! {lhs}</th>
+<th>mapclear!</th>
+<th>map!</th>
+<th>map! {lhs}</th>
+</tr>
+<tr>
+<th>imap {lhs} {rhs}</th>
+<th>inoremap {lhs} {rhs}</th>
+<th>iunmap {lhs}</th>
+<th>imapclear</th>
+<th>imap</th>
+<th>imap {lhs}</th>
+</tr>
+<tr>
+<th>lmap {lhs} {rhs}</th>
+<th>lnoremap {lhs} {rhs}</th>
+<th>lunmap {lhs}</th>
+<th>lmapclear</th>
+<th>lmap</th>
+<th>lmap {lhs}</th>
+</tr>
+<tr>
+<th>cmap {lhs} {rhs}</th>
+<th>cnoremap {lhs} {rhs}</th>
+<th>cunmap {lhs}</th>
+<th>cmapclear</th>
+<th>cmap</th>
+<th>cmap {lhs}</th>
+</tr>
+<tr>
+<th><em>normal {lhs} {rhs}</em></th>
+<th><em>+nore {lhs} {rhs}</em></th>
+<th><em>+un {lhs}</em></th>
+<th><em>+clear</em></th>
+<th><em>normal</em></th>
+<th><em>normal {lhs}</em></th>
 </tr>
 </table>
     </div>
