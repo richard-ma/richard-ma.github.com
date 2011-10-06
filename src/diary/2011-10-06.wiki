@@ -15,3 +15,26 @@
     操作等待模式：组合命令中等待下一个操作符时处于此模式。例如按下a，d，y等命令时。
 * Other mode
     所有其他的模式均由以上模式组合而来。
+
+=bash redirection=
+* stdin, stdout, stderr = 0, 1, 2 in bash
+* 调用时使用&0, &1, &2
+* 将stdout和stderr都重定向到文件
+    * ./program >outfile 2>&1 （推荐）
+    * ./program &>outfile（推荐）
+    * ./program >&outfile
+* 只有stdout进入outfile，stderr还是在屏幕回显
+    * ./program 2>&1 >outfile
+* 三种重定向
+    * use < to redirection stdin: ./program < infile
+    * use > to redirection stdout: ./program > outfile (refreshed)
+    * use >> to append stdout: ./program >> outfile (append)
+* 用途
+    * make &> log 记录make命令的过程，作为debug使用
+
+=special files=
+* /dev/null 本身是空的，什么也没有
+* /dev/zero 无数个0组成的文件
+* /dev/full 无数个0组成的满满的文件，不能输入任何东西
+* /dev/random 一堆随机数据组成的文件
+* /dev/urandom 一堆随机数据组成的文件，但安全性比random底，从密码学的角度来说

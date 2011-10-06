@@ -33,6 +33,8 @@
 <div class="toc">
 <ul>
 <li><a href="#toc_1"> vim mode</a></li>
+<li><a href="#toc_2"> bash redirection</a></li>
+<li><a href="#toc_3"> special files</a></li>
 </ul>
 </div>
 
@@ -65,6 +67,79 @@ Operator-pending mode
 <li>
 Other mode
     所有其他的模式均由以上模式组合而来。
+</li>
+</ul>
+
+<h1 id="toc_2"> bash redirection</h1>
+<ul>
+<li>
+stdin, stdout, stderr = 0, 1, 2 in bash
+</li>
+<li>
+调用时使用&amp;0, &amp;1, &amp;2
+</li>
+<li>
+将stdout和stderr都重定向到文件
+</li>
+<ul>
+<li>
+./program &gt;outfile 2&gt;&amp;1 （推荐）
+</li>
+<li>
+./program &amp;&gt;outfile（推荐）
+</li>
+<li>
+./program &gt;&amp;outfile
+</li>
+</ul>
+<li>
+只有stdout进入outfile，stderr还是在屏幕回显
+</li>
+<ul>
+<li>
+./program 2&gt;&amp;1 &gt;outfile
+</li>
+</ul>
+<li>
+三种重定向
+</li>
+<ul>
+<li>
+use &lt; to redirection stdin: ./program &lt; infile
+</li>
+<li>
+use &gt; to redirection stdout: ./program &gt; outfile (refreshed)
+</li>
+<li>
+use &gt;&gt; to append stdout: ./program &gt;&gt; outfile (append)
+</li>
+</ul>
+<li>
+用途
+</li>
+<ul>
+<li>
+make &amp;&gt; log 记录make命令的过程，作为debug使用
+</li>
+</ul>
+</ul>
+
+<h1 id="toc_3"> special files</h1>
+<ul>
+<li>
+/dev/null 本身是空的，什么也没有
+</li>
+<li>
+/dev/zero 无数个0组成的文件
+</li>
+<li>
+/dev/full 无数个0组成的满满的文件，不能输入任何东西
+</li>
+<li>
+/dev/random 一堆随机数据组成的文件
+</li>
+<li>
+/dev/urandom 一堆随机数据组成的文件，但安全性比random底，从密码学的角度来说
 </li>
 </ul>
     </div>
