@@ -1,0 +1,34 @@
+%toc
+
+= vim mode =
+* Normal mode
+    普通的命令模式：这个模式下不可以编辑文本，所有按键被视为命令。
+* Insert mode
+    插入模式：此模式下所有字符被视为输入字符，记录到文本中。可使用Ctrl和Alt等组合键发布命令。
+* Visual mode
+    可视模式：对一组数据进行操作，Normal下v或V，亦或Ctrl-v命令进入此模式。
+* Select mode
+    选择模式：只在SnipMate插件中见过，可对特定文本做替换操作。
+* Command-line mode
+    命令行模式：执行特殊命令，例如bash调用，搜索等。按:或/亦或?进入此模式。
+* Operator-pending mode
+    操作等待模式：组合命令中等待下一个操作符时处于此模式。例如按下a，d，y等命令时。
+* Other mode
+    所有其他的模式均由以上模式组合而来。
+
+=bash redirection=
+* stdin, stdout, stderr = 0, 1, 2 in bash
+* 调用时使用&0, &1, &2
+* 将stdout和stderr都重定向到文件
+    * ./program >outfile 2>&1 （推荐）
+    * ./program &>outfile（推荐）
+    * ./program >&outfile
+* 只有stdout进入outfile，stderr还是在屏幕回显
+    * ./program 2>&1 >outfile
+* 三种重定向
+    * use < to redirection stdin: ./program < infile
+    * use > to redirection stdout: ./program > outfile (refreshed)
+    * use >> to append stdout: ./program >> outfile (append)
+* 用途
+    * make &> log 记录make命令的过程，作为debug使用
+

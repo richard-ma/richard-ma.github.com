@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<link rel="Stylesheet" type="text/css" href="../css/style.css" /> 
+<title>Richard Ma's personal Wiki</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+</head> 
+<body> 
+    <div id="navbar">
+    	<ul>
+    		<li> <a class="activated" href="../index.html">Wiki</a> </li>
+    		<li> <a href="http://www.richardma.org">Blog</a> </li>
+    		<li> <a href="https://github.com/richard-ma">GitHub</a> </li>
+    		<li class="search">
+                <form action="http://www.google.com/search" method="get">
+                    <input name="sitesearch" value="http://richard-ma.github.com/" type="hidden" />
+                    <input name="hl" value="zh-CN" type="hidden" />
+                    <input name="ie" value="UTF-8" type="hidden" />
+                    <input size="25" name="q" id="query" value="Search..." type="text" 
+                        onfocus="if( this.value=='Search...') {this.value='' };" 
+                        onblur="if( this.value=='') {this.value='Search...' };" />
+                </form>
+            </li>
+    	</ul>
+    </div>
+    <div id="content">
+        <script type="text/javascript">
+            // The following are highly recommended additional parameters. Remove the slashes in front to use.
+            var disqus_identifier = 'vim mapping';
+            var disqus_url = 'http://richard-ma.github.com/vim mapping.html';
+        </script>
+
+<div class="toc">
+<ul>
+<li><a href="#toc_1"> The kinds of vim mapping</a></li>
+</ul>
+</div>
+
+<h1 id="toc_1"> The kinds of vim mapping</h1>
+<table>
+<tr>
+<th><strong>nested/recursive</strong></th>
+<th><strong>NOT</strong> nested/recursive</th>
+<th><strong>Remove</strong> mapping</th>
+<th><strong>Remove All</strong> mapping</th>
+<th><strong>List All</strong> mapping</th>
+<th><strong>List key</strong> mapping</th>
+</tr>
+<tr>
+<th>map {lhs} {rhs}</th>
+<th>noremap {lhs} {rhs}</th>
+<th>unmap {lhs}</th>
+<th>mapclear</th>
+<th>map</th>
+<th>map {lhs}</th>
+</tr>
+<tr>
+<th>nmap {lhs} {rhs}</th>
+<th>nnoremap {lhs} {rhs}</th>
+<th>nunmap {lhs}</th>
+<th>nmapclear</th>
+<th>nmap</th>
+<th>nmap {lhs}</th>
+</tr>
+<tr>
+<th>vmap {lhs} {rhs}</th>
+<th>vnoremap {lhs} {rhs}</th>
+<th>vunmap {lhs}</th>
+<th>vmapclear</th>
+<th>vmap</th>
+<th>vmap {lhs}</th>
+</tr>
+<tr>
+<th>xmap {lhs} {rhs}</th>
+<th>xnoremap {lhs} {rhs}</th>
+<th>xunmap {lhs}</th>
+<th>xmapclear</th>
+<th>xmap</th>
+<th>xmap {lhs}</th>
+</tr>
+<tr>
+<th>smap {lhs} {rhs}</th>
+<th>snoremap {lhs} {rhs}</th>
+<th>sunmap {lhs}</th>
+<th>smapclear</th>
+<th>smap</th>
+<th>smap {lhs}</th>
+</tr>
+<tr>
+<th>omap {lhs} {rhs}</th>
+<th>onoremap {lhs} {rhs}</th>
+<th>ounmap {lhs}</th>
+<th>omapclear</th>
+<th>omap</th>
+<th>omap {lhs}</th>
+</tr>
+<tr>
+<th>map! {lhs} {rhs}</th>
+<th>noremap! {lhs} {rhs}</th>
+<th>unmap! {lhs}</th>
+<th>mapclear!</th>
+<th>map!</th>
+<th>map! {lhs}</th>
+</tr>
+<tr>
+<th>imap {lhs} {rhs}</th>
+<th>inoremap {lhs} {rhs}</th>
+<th>iunmap {lhs}</th>
+<th>imapclear</th>
+<th>imap</th>
+<th>imap {lhs}</th>
+</tr>
+<tr>
+<th>lmap {lhs} {rhs}</th>
+<th>lnoremap {lhs} {rhs}</th>
+<th>lunmap {lhs}</th>
+<th>lmapclear</th>
+<th>lmap</th>
+<th>lmap {lhs}</th>
+</tr>
+<tr>
+<th>cmap {lhs} {rhs}</th>
+<th>cnoremap {lhs} {rhs}</th>
+<th>cunmap {lhs}</th>
+<th>cmapclear</th>
+<th>cmap</th>
+<th>cmap {lhs}</th>
+</tr>
+<tr>
+<th><em>normal {lhs} {rhs}</em></th>
+<th><em>+nore {lhs} {rhs}</em></th>
+<th><em>+un {lhs}</em></th>
+<th><em>+clear</em></th>
+<th><em>normal</em></th>
+<th><em>normal {lhs}</em></th>
+</tr>
+</table>
+<table>
+<tr>
+<th>Mapping Type</th>
+<th>Normal</th>
+<th>Visual</th>
+<th>Select</th>
+<th>Insert</th>
+<th>Command-line</th>
+<th>Lang-Arg</th>
+<th>Operator-pending</th>
+</tr>
+<tr>
+<th>map</th>
+<th>Y</th>
+<th>Y</th>
+<th>Y</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>Y</th>
+</tr>
+<tr>
+<th>n-map</th>
+<th>Y</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+</tr>
+<tr>
+<th>v-map</th>
+<th>&nbsp;</th>
+<th>Y</th>
+<th>Y</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+</tr>
+<tr>
+<th>o-map</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>Y</th>
+</tr>
+<tr>
+<th>x-map</th>
+<th>&nbsp;</th>
+<th>Y</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+</tr>
+<tr>
+<th>s-map</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>Y</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+</tr>
+<tr>
+<th>!-map</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>Y</th>
+<th>Y</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+</tr>
+<tr>
+<th>i-map</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>Y</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+</tr>
+<tr>
+<th>c-map</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>Y</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+</tr>
+<tr>
+<th>l-map</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>&nbsp;</th>
+<th>Y*</th>
+<th>Y*</th>
+<th>Y*</th>
+<th>&nbsp;</th>
+</tr>
+</table>
+    </div>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'richard_ma'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+ 
+</body> 
+<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/SyntaxHighlighter.css"></link>
+<script language="javascript" src="syntaxhighlighter/js/shCore.js"></script>
+<script language="javascript" src="syntaxhighlighter/js/shBrushJava.js"></script>
+<script language="javascript" src="syntaxhighlighter/js/shBrushXml.js"></script>
+<script language="javascript" src="syntaxhighlighter/js/shBrushPython.js"></script>
+<script language="javascript" src="syntaxhighlighter/js/shBrushCpp.js"></script>
+<script language="javascript" src="syntaxhighlighter/js/shBrushSql.js"></script>
+<script language="javascript">
+dp.SyntaxHighlighter.ClipboardSwf = 'syntaxhighlighter/clipboard.swf';
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</html> 

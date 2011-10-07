@@ -1,0 +1,16 @@
+= neocomplcache =
+%toc
+
+== g:neocomplcache_enable_at_startup ==
+自动启动neocomplcache
+
+== g:neocomplcache_max_list ==
+下拉列表最大元素值
+
+== g:neocomplcache_max_keyword_width ==
+最大单词长度
+
+== g:neocomplcache_max_filename_width ==
+最大文件名长度
+
+== 

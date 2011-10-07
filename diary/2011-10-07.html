@@ -1,14 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head> 
-<link rel="Stylesheet" type="text/css" href="/css/style.css" /> 
+<link rel="Stylesheet" type="text/css" href="../css/style.css" /> 
 <title>Richard Ma's personal Wiki</title> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 </head> 
 <body> 
     <div id="navbar">
     	<ul>
-    		<li> <a class="activated" href="/index.html">Wiki</a> </li>
+    		<li> <a class="activated" href="../index.html">Wiki</a> </li>
     		<li> <a href="http://www.richardma.org">Blog</a> </li>
     		<li> <a href="https://github.com/richard-ma">GitHub</a> </li>
     		<li class="search">
@@ -26,133 +26,139 @@
     <div id="content">
         <script type="text/javascript">
             // The following are highly recommended additional parameters. Remove the slashes in front to use.
-            var disqus_identifier = 'Linux Study Guide';
-            var disqus_url = 'http://richard-ma.github.com/Linux Study Guide.html';
+            var disqus_identifier = '2011-10-07';
+            var disqus_url = 'http://richard-ma.github.com/2011-10-07.html';
         </script>
 
-<h1 id="toc_1"> Linux Study Guide</h1>
-<div class="toc">
-<ul>
-<li><a href="#toc_1"> Linux Study Guide</a></li>
-<ul>
-<li><a href="#toc_1.1">1. 学习方式</a></li>
-<ul>
-<li><a href="#toc_1.1.1">1.1. 任务驱动</a></li>
-<li><a href="#toc_1.1.2">1.2. 系统总结</a></li>
-<li><a href="#toc_1.1.3">1.3. 灵光一闪</a></li>
-</ul>
-<li><a href="#toc_1.2">2. 提问的智慧</a></li>
-</ul>
-</ul>
-</div>
+<h1 id="toc_1"> 伪设备</h1>
 
-<h2 id="toc_1.1">1. 学习方式</h2>
-<h3 id="toc_1.1.1">1.1. 任务驱动</h3>
+<h2 id="toc_1.1">1. 简介</h2>
+<ul>
+<li>
+/dev/null 本身是空的，什么也没有
+</li>
+<li>
+/dev/zero 无数个0组成的文件
+</li>
+<li>
+/dev/full 无数个0组成的满满的文件，不能输入任何东西
+</li>
+<li>
+/dev/random 一堆随机数据组成的文件，阻塞速度慢
+</li>
+<li>
+/dev/urandom 一堆随机数据组成的文件，但安全性比random底，非阻塞速度快
+</li>
+<li>
+/dev/loop 说是挂载文件时使用，具体不太清楚，以后研究
+</li>
+</ul>
+
+<h2 id="toc_1.2">2. 主要用途</h2>
+<h3 id="toc_1.2.1">2.1. 创建文件</h3>
+<blockquote>
+$ dd if=INFILE of=DESTFILE bs=BLOCK_SIZE count=BLOCK_COUNT
+</blockquote>
+
 <p>
-文档模式
+这里的DESTFILE就是想创建的指定大小的文件，文件大小为BLOCK_SIZE * BLOCK_COUNT，单位是B。
+</p>
+
+<p>
+INFILE可以用以下两个伪设备：
 </p>
 <ul>
 <li>
-manual
-</li>
-<ol>
-<li>
-RTFM Read The Fucking Manual.
+/dev/zero
 </li>
 <li>
-manpage
+/dev/full
 </li>
-<li>
-online manual
-</li>
-</ol>
-<li>
-wiki
-</li>
-<ol>
-<li>
-官方wiki
-</li>
-<li>
-wikipedia
-</li>
-</ol>
-<li>
-Google大神
-</li>
-<li>
-源码学习
-</li>
-<ol>
-<li>
-source/README
-</li>
-<li>
-source/test
-</li>
-<li>
-source/demo
-</li>
-<li>
-source/src
-</li>
-</ol>
 </ul>
+
 <p>
-互动模式
+其他几个的问题:
 </p>
 <ul>
 <li>
-IRC
+/dev/null 建立出来的文件永远大小是0
 </li>
 <li>
-论坛
-</li>
-<li>
-邮件列表
-</li>
-<li>
-线下活动的讨论和交流
+/dev/random和/dev/urandom 创建出的文件大小不定。因为dd命令在达到预定大小或者遇到EOF时会停止复制。如果随机产生了EOF，则停止复制。
 </li>
 </ul>
-<h3 id="toc_1.1.2">1.2. 系统总结</h3>
+
+<h3 id="toc_1.2.2">2.2. 垃圾桶</h3>
+<blockquote>
+$ ./program &gt;OUTFILE
+</blockquote>
+
+<p>
+OUTFILE可以用以下伪设备：
+</p>
 <ul>
 <li>
-个人wiki
-</li>
-<ol>
-<li>
-vim: vimwiki
+/dev/null
 </li>
 <li>
-emacs: org-mode
+/dev/zero
 </li>
 <li>
-WEB: mediawiki
+/dev/random和/dev/urandom 也可以，目前没发现什么副作用。
 </li>
-</ol>
-<li>
-Blog
-</li>
-<ol>
-<li>
-使用tag分类
-</li>
-</ol>
 </ul>
-<h3 id="toc_1.1.3">1.3. 灵光一闪</h3>
+
+<p>
+其他的问题
+</p>
 <ul>
 <li>
-microBlog
-</li>
-<li>
-小本子和笔
-</li>
-<li>
-国外的好创意
+/dev/full 时刻会显示设备没有空余空间，因为已经被占满了。可以用这个来测试程序对于磁盘空间耗尽时的反应。
 </li>
 </ul>
-<h2 id="toc_1.2">2. 提问的智慧</h2>
+
+<h3 id="toc_1.2.3">2.3. random的不同版本比较</h3>
+
+<h4 id="toc_1.2.3.1">2.3.1. random有两个版本</h4>
+
+<ul>
+<li>
+/dev/random 阻塞版本
+</li>
+<li>
+/dev/urandom 非阻塞版本
+</li>
+<li>
+对于BSD系统，urandom和random的一个符号链接，都是非阻塞的，相当于Linux系统下的urandom。
+</li>
+</ul>
+
+<h4 id="toc_1.2.3.2">2.3.2. 实验</h4>
+<pre>
+     for i in `seq 1 100`
+     do
+        od -N 1 -c /dev/urandom | awk '{ print $2 }'
+     done
+</pre>
+<ul>
+<li>
+这个实验可以很顺利的完成，替换为random即可看到区别，速度明显慢于urandom。
+</li>
+<li>
+如果random版本中途停止的话，可以尝试晃动鼠标让random继续运行。
+</li>
+<li>
+gnupg产生随机数可能就用到/dev/random，因为它会要求你晃动鼠标或按键来产生更多随机数。
+</li>
+</ul>
+
+<h3 id="toc_1.2.4">2.4. 循环设备的使用</h3>
+
+<ul>
+<li><input type="checkbox" />
+/dev/loop 使用实验
+</li>
+</ul>
     </div>
 
     <div id="disqus_thread"></div>
