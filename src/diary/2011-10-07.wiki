@@ -1,0 +1,59 @@
+=伪设备=
+
+==简介==
+* /dev/null 本身是空的，什么也没有
+* /dev/zero 无数个0组成的文件
+* /dev/full 无数个0组成的满满的文件，不能输入任何东西
+* /dev/random 一堆随机数据组成的文件，阻塞速度慢
+* /dev/urandom 一堆随机数据组成的文件，但安全性比random底，非阻塞速度快
+* /dev/loop 说是挂载文件时使用，具体不太清楚，以后研究
+
+==主要用途==
+===创建文件===
+
+     $ dd if=INFILE of=DESTFILE bs=BLOCK_SIZE count=BLOCK_COUNT
+
+这里的DESTFILE就是想创建的指定大小的文件，文件大小为BLOCK_SIZE * BLOCK_COUNT，单位是B。
+
+INFILE可以用以下两个伪设备：
+* /dev/zero
+* /dev/full
+
+其他几个的问题:
+* /dev/null 建立出来的文件永远大小是0
+* /dev/random和/dev/urandom 创建出的文件大小不定。因为dd命令在达到预定大小或者遇到EOF时会停止复制。如果随机产生了EOF，则停止复制。
+
+===垃圾桶===
+
+     $ ./program >OUTFILE
+
+OUTFILE可以用以下伪设备：
+* /dev/null
+* /dev/zero
+* /dev/random和/dev/urandom 也可以，目前没发现什么副作用。
+
+其他的问题
+* /dev/full 时刻会显示设备没有空余空间，因为已经被占满了。可以用这个来测试程序对于磁盘空间耗尽时的反应。
+
+===random的不同版本比较===
+
+====random有两个版本====
+
+* /dev/random 阻塞版本
+* /dev/urandom 非阻塞版本
+* 对于BSD系统，urandom和random的一个符号链接，都是非阻塞的，相当于Linux系统下的urandom。
+
+====实验====
+{{{
+     for i in `seq 1 100`
+     do
+        od -N 1 -c /dev/urandom | awk '{ print $2 }'
+     done
+}}}  
+* 这个实验可以很顺利的完成，替换为random即可看到区别，速度明显慢于urandom。
+* 如果random版本中途停止的话，可以尝试晃动鼠标让random继续运行。
+* gnupg产生随机数可能就用到/dev/random，因为它会要求你晃动鼠标或按键来产生更多随机数。
+
+===循环设备的使用===
+
+* [ ] /dev/loop 使用实验

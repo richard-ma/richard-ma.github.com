@@ -32,9 +32,3 @@
 * 用途
     * make &> log 记录make命令的过程，作为debug使用
 
-=special files=
-* /dev/null 本身是空的，什么也没有
-* /dev/zero 无数个0组成的文件
-* /dev/full 无数个0组成的满满的文件，不能输入任何东西
-* /dev/random 一堆随机数据组成的文件
-* /dev/urandom 一堆随机数据组成的文件，但安全性比random底，从密码学的角度来说

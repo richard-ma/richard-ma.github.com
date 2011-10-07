@@ -26,101 +26,138 @@
     <div id="content">
         <script type="text/javascript">
             // The following are highly recommended additional parameters. Remove the slashes in front to use.
-            var disqus_identifier = '2011-10-06';
-            var disqus_url = 'http://richard-ma.github.com/2011-10-06.html';
+            var disqus_identifier = '2011-10-07';
+            var disqus_url = 'http://richard-ma.github.com/2011-10-07.html';
         </script>
 
-<div class="toc">
-<ul>
-<li><a href="#toc_1"> vim mode</a></li>
-<li><a href="#toc_2"> bash redirection</a></li>
-</ul>
-</div>
+<h1 id="toc_1"> 伪设备</h1>
 
-<h1 id="toc_1"> vim mode</h1>
+<h2 id="toc_1.1">1. 简介</h2>
 <ul>
 <li>
-Normal mode
-    普通的命令模式：这个模式下不可以编辑文本，所有按键被视为命令。
+/dev/null 本身是空的，什么也没有
 </li>
 <li>
-Insert mode
-    插入模式：此模式下所有字符被视为输入字符，记录到文本中。可使用Ctrl和Alt等组合键发布命令。
+/dev/zero 无数个0组成的文件
 </li>
 <li>
-Visual mode
-    可视模式：对一组数据进行操作，Normal下v或V，亦或Ctrl-v命令进入此模式。
+/dev/full 无数个0组成的满满的文件，不能输入任何东西
 </li>
 <li>
-Select mode
-    选择模式：只在SnipMate插件中见过，可对特定文本做替换操作。
+/dev/random 一堆随机数据组成的文件，阻塞速度慢
 </li>
 <li>
-Command-line mode
-    命令行模式：执行特殊命令，例如bash调用，搜索等。按:或/亦或?进入此模式。
+/dev/urandom 一堆随机数据组成的文件，但安全性比random底，非阻塞速度快
 </li>
 <li>
-Operator-pending mode
-    操作等待模式：组合命令中等待下一个操作符时处于此模式。例如按下a，d，y等命令时。
-</li>
-<li>
-Other mode
-    所有其他的模式均由以上模式组合而来。
+/dev/loop 说是挂载文件时使用，具体不太清楚，以后研究
 </li>
 </ul>
 
-<h1 id="toc_2"> bash redirection</h1>
+<h2 id="toc_1.2">2. 主要用途</h2>
+<h3 id="toc_1.2.1">2.1. 创建文件</h3>
+<blockquote>
+$ dd if=INFILE of=DESTFILE bs=BLOCK_SIZE count=BLOCK_COUNT
+</blockquote>
+
+<p>
+这里的DESTFILE就是想创建的指定大小的文件，文件大小为BLOCK_SIZE * BLOCK_COUNT，单位是B。
+</p>
+
+<p>
+INFILE可以用以下两个伪设备：
+</p>
 <ul>
 <li>
-stdin, stdout, stderr = 0, 1, 2 in bash
+/dev/zero
 </li>
 <li>
-调用时使用&amp;0, &amp;1, &amp;2
-</li>
-<li>
-将stdout和stderr都重定向到文件
-</li>
-<ul>
-<li>
-./program &gt;outfile 2&gt;&amp;1 （推荐）
-</li>
-<li>
-./program &amp;&gt;outfile（推荐）
-</li>
-<li>
-./program &gt;&amp;outfile
+/dev/full
 </li>
 </ul>
-<li>
-只有stdout进入outfile，stderr还是在屏幕回显
-</li>
+
+<p>
+其他几个的问题:
+</p>
 <ul>
 <li>
-./program 2&gt;&amp;1 &gt;outfile
+/dev/null 建立出来的文件永远大小是0
+</li>
+<li>
+/dev/random和/dev/urandom 创建出的文件大小不定。因为dd命令在达到预定大小或者遇到EOF时会停止复制。如果随机产生了EOF，则停止复制。
 </li>
 </ul>
-<li>
-三种重定向
-</li>
+
+<h3 id="toc_1.2.2">2.2. 垃圾桶</h3>
+<blockquote>
+$ ./program &gt;OUTFILE
+</blockquote>
+
+<p>
+OUTFILE可以用以下伪设备：
+</p>
 <ul>
 <li>
-use &lt; to redirection stdin: ./program &lt; infile
+/dev/null
 </li>
 <li>
-use &gt; to redirection stdout: ./program &gt; outfile (refreshed)
+/dev/zero
 </li>
 <li>
-use &gt;&gt; to append stdout: ./program &gt;&gt; outfile (append)
+/dev/random和/dev/urandom 也可以，目前没发现什么副作用。
 </li>
 </ul>
-<li>
-用途
-</li>
+
+<p>
+其他的问题
+</p>
 <ul>
 <li>
-make &amp;&gt; log 记录make命令的过程，作为debug使用
+/dev/full 时刻会显示设备没有空余空间，因为已经被占满了。可以用这个来测试程序对于磁盘空间耗尽时的反应。
 </li>
 </ul>
+
+<h3 id="toc_1.2.3">2.3. random的不同版本比较</h3>
+
+<h4 id="toc_1.2.3.1">2.3.1. random有两个版本</h4>
+
+<ul>
+<li>
+/dev/random 阻塞版本
+</li>
+<li>
+/dev/urandom 非阻塞版本
+</li>
+<li>
+对于BSD系统，urandom和random的一个符号链接，都是非阻塞的，相当于Linux系统下的urandom。
+</li>
+</ul>
+
+<h4 id="toc_1.2.3.2">2.3.2. 实验</h4>
+<pre>
+     for i in `seq 1 100`
+     do
+        od -N 1 -c /dev/urandom | awk '{ print $2 }'
+     done
+</pre>
+<ul>
+<li>
+这个实验可以很顺利的完成，替换为random即可看到区别，速度明显慢于urandom。
+</li>
+<li>
+如果random版本中途停止的话，可以尝试晃动鼠标让random继续运行。
+</li>
+<li>
+gnupg产生随机数可能就用到/dev/random，因为它会要求你晃动鼠标或按键来产生更多随机数。
+</li>
+</ul>
+
+<h3 id="toc_1.2.4">2.4. 循环设备的使用</h3>
+
+<ul>
+<li><input type="checkbox" />
+/dev/loop 使用实验
+</li>
 </ul>
     </div>
 
