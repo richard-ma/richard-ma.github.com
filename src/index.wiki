@@ -36,6 +36,8 @@
 ===Bash===
     * [[ImageMagick]]
     * [[coreutils]]
+    * [[pam]]
+    * [[vsftpd]]
 ===Vim===
     * [[zencoding]]
 ===TJLUG Presentation===

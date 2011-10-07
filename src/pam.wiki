@@ -1,0 +1,8 @@
+= PAM =
+Pluggable Authentication Modules for Linux
+
+== task ==
+=== account - account ===
+=== auth - authentication ===
+=== password - password ===
+=== session - session ===

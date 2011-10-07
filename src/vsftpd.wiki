@@ -1,0 +1,22 @@
+= vsftpd =
+
+== anonymous settings ==
+
+要点：
+# 匿名用户的权限即为虚拟用户的权限
+# 匿名用户默认用户名为ftp或anonymous
+# 有关写权限都需要有文件夹的写权限
+# 写权限和上传，删除，重命名是分开设置权限的
+
+配置参数：
+* allow_anon_ssl: B: 允许匿名用户使用ssl
+* anon_mkdir_write_enable: B: 允许匿名用户创建文件夹，但该用户必须拥有写权限和目录写权限
+* anon_other_write_enable: B: 赋予匿名用户上传，删除和重命名的权限
+* anon_upload_enable: B: 匿名用户上传权限
+* anon_world_readable_only: B: 开启后，匿名用户只可以下载全局可读文件，这样可以使得用户有自己的私人文件空间
+* anonymous_eable: B: 是否开启匿名用户，默认用户名为ftp或anonymous
+* anon_max_rate: N: 匿名用户最大下载限速
+* anon_umask: N: 匿名用户上传文件umask
+* anon_root: S: 匿名用户对应的根目录路径
+
+
