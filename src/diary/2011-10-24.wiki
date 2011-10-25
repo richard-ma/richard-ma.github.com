@@ -1,0 +1,33 @@
+%title 使用xelatex
+
+=安装=
+# 安装latex或者texlive
+# 安装texlive-xetex
+
+=查看系统字体=
+* fc-list
+* 其列出的字体都可以直接用
+
+=测试文件=
+% !TEX program = xelatex
+
+\documentclass[12pt,a4paper]{article}
+ 
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\setromanfont{WenQuanYi Micro Hei}
+
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+\begin{document}
+\XeTeX\ Show: $\alpha$, $a^2+b^2=c^2$
+中文字体！
+\end{document}
+
+=编译=
+* xelatex
+
+=安装beamer制作slide=
+# 安装latex-beamer
+# 安装texlive-latex-extra

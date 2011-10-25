@@ -1,0 +1,13 @@
+=UbuntuOne重新启动服务=
+
+u1sdtool
+
+重启服务
+
+# $ u1sdtool -q // 退出服务
+# $ u1sdtool --start // 启动服务
+# $ u1sdtool -c // 重新链接服务器
+
+查看当前状态
+
+* $ u1sdtool -s //查看当前服务状态

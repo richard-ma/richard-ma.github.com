@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<link rel="Stylesheet" type="text/css" href="../css/style.css" /> 
+<title>Richard Ma's personal Wiki</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+</head> 
+<body> 
+    <div id="navbar">
+    	<ul>
+    		<li> <a class="activated" href="../index.html">Wiki</a> </li>
+    		<li> <a href="http://www.richardma.org">Blog</a> </li>
+    		<li> <a href="https://github.com/richard-ma">GitHub</a> </li>
+    		<li class="search">
+                <form action="http://www.google.com/search" method="get">
+                    <input name="sitesearch" value="http://richard-ma.github.com/" type="hidden" />
+                    <input name="hl" value="zh-CN" type="hidden" />
+                    <input name="ie" value="UTF-8" type="hidden" />
+                    <input size="25" name="q" id="query" value="Search..." type="text" 
+                        onfocus="if( this.value=='Search...') {this.value='' };" 
+                        onblur="if( this.value=='') {this.value='Search...' };" />
+                </form>
+            </li>
+    	</ul>
+    </div>
+    <div id="content">
+        <script type="text/javascript">
+            // The following are highly recommended additional parameters. Remove the slashes in front to use.
+            var disqus_identifier = '2011-10-14';
+            var disqus_url = 'http://richard-ma.github.com/2011-10-14.html';
+        </script>
+
+<h1 id="toc_1"> glib 输出内部数据类型</h1>
+
+<h2 id="toc_1.1">1. glib提供的数据类型</h2>
+<p>
+guint16
+guint32
+guint64
+gint16
+gint32
+gint64
+</p>
+
+<h2 id="toc_1.2">2. 输出都使用</h2>
+<p>
+g_print() 用法与printf()相同
+</p>
+
+<h2 id="toc_1.3">3. g_printf()使用"%x"来格式化变量</h2>
+<table>
+<tr>
+<th>G_GUINT16_FORMAT</th>
+<th>hu</th>
+</tr>
+<tr>
+<th>G_GUINT32_FORMAT</th>
+<th>u</th>
+</tr>
+<tr>
+<th>G_GUINT64_FORMAT</th>
+<th>lu</th>
+</tr>
+<tr>
+<th>G_GINT16_FORMAT</th>
+<th>hi</th>
+</tr>
+<tr>
+<th>G_GINT32_FORMAT</th>
+<th>i</th>
+</tr>
+<tr>
+<th>G_GINT64_FORMAT</th>
+<th>li</th>
+</tr>
+</table>
+    </div>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'richard_ma'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+ 
+</body> 
+<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/SyntaxHighlighter.css"></link>
+<script language="javascript" src="syntaxhighlighter/js/shCore.js"></script>
+<script language="javascript" src="syntaxhighlighter/js/shBrushJava.js"></script>
+<script language="javascript" src="syntaxhighlighter/js/shBrushXml.js"></script>
+<script language="javascript" src="syntaxhighlighter/js/shBrushPython.js"></script>
+<script language="javascript" src="syntaxhighlighter/js/shBrushCpp.js"></script>
+<script language="javascript" src="syntaxhighlighter/js/shBrushSql.js"></script>
+<script language="javascript">
+dp.SyntaxHighlighter.ClipboardSwf = 'syntaxhighlighter/clipboard.swf';
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</html> 
