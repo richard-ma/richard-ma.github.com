@@ -1,0 +1,7 @@
+%title Box2D安装
+
+=Ubuntu下依赖包=
+* cmake
+* glutg3-dev
+* libxmu-dev
+* xorg-dev
