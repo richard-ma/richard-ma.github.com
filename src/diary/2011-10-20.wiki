@@ -1,0 +1,6 @@
+=Moodle批量添加用户=
+# 写一个用逗号,分割的csv文本文件
+# 第一行为字段名，一般使用usesrname,password,firstname,lastname,email
+# 保存编码为一字节的utf8
+# 管理员登录网站
+# 网站管理->用户->账户->上传用户

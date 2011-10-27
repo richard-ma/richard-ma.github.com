@@ -1,0 +1,26 @@
+=glib 输出内部数据类型=
+
+==glib提供的数据类型==
+guint16
+guint32
+guint64
+gint16
+gint32
+gint64
+
+==输出都使用==
+g_print() 用法与printf()相同
+
+==g_printf()使用"%x"来格式化变量==
+| G_GUINT16_FORMAT | hu |
+|------------------+----|
+| G_GUINT32_FORMAT | u  |
+|------------------+----|
+| G_GUINT64_FORMAT | lu |
+|------------------+----|
+| G_GINT16_FORMAT  | hi |
+|------------------+----|
+| G_GINT32_FORMAT  | i  |
+|------------------+----|
+| G_GINT64_FORMAT  | li |
+|------------------+----|
