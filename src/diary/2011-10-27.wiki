@@ -5,3 +5,8 @@
 * glutg3-dev
 * libxmu-dev
 * xorg-dev
+
+=安装=
+* 按照Build.txt中说明编译
+* make & make install 需要root权限
+* sudo ldconfig 更新动态链接库缓存
