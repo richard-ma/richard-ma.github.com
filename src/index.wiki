@@ -1,5 +1,7 @@
 %toc
 %title Richard Ma's Wiki
+=Diary=
+[[diary/diary]]
 =Vimwiki key shortcut=
 * <Leader>wf 打开一个新链接
 * <Leader>we 水平分割打开一个新链接
@@ -68,5 +70,3 @@ TODO:
 * 虚拟机作用
     # 模拟复杂网络环境
     # 无痛体验测试软件
-=Diary=
-[[diary/diary]]

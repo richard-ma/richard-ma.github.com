@@ -1,0 +1,40 @@
+%title Linux I/O port programming
+
+=简介=
+=使用I/O ports进行C编程=
+==一般方法==
+* I/O ports的函数定义都在/usr/include/asm/io.h中
+* 编译说明
+    * gcc后加上-O1或更高的优化选项
+    * 在include头文件前后加上#define extern static和#undef extern宏定义
+    * 调试编译可使用-g -O选项（gcc要是比较新的版本）
+===权限控制===
+* 使用ioperm函数控制
+    * 此函数定义在unistd.h中
+    * ioperm参数：form为port地址，num为打开地址的offset，开关标记（1表示授权，0表示取消授权）
+    * 此函数要求root权限，可在取消授权后释放root权限
+    * 可以不显示表明取消授权，程序结束时会自动释放root权限
+    * 使用setuid转换为非root用户并不能停止ioperm对port的访问
+    * 使用fork出的子线程无法访问port，但是访问权在其父线程中仍然可用
+    * ioperm可以访问0x000到0x3ff的port，更高的port需要使用iopl访问，但是要格外小心
+===访问port===
+* b后缀函数以Byte为单位读取inb, outb
+* w后缀函数以字长为单位读取inw, outw
+* 如果不确定是字节还是字长为单位的port，建议使用字节函数
+* _p后缀会在访问设备时加上1毫秒的延时，如果需要4毫秒的延时，可以在include <asm/io.h>前#define REALLY_SLOW_IO
+==备用方法 /dev/port==
+* 可以直接读写/dev/port文件（字符文件）
+* 不要使用f*之类的函数，因为他们有内部缓冲区
+* 使用lseek搜索文件，位置0为port 0x00，位置1为port 0x01以此类推
+* 使用字节为单位操作
+* 这种方法不需要root权限，不过不利于系统安全
+=访问IRQ和DMA=
+* 用户模式进程不可以直接使用IRQ或者DMA，这个可以写一个内核驱动来实现
+* 你可以在用户模式程序中禁用中断，不过这很危险
+=高精度计时=
+==延时==
+* 用户模式程序不太能够精确的统计时间。这是由于Linux的多任务所致，任何一个程序都可能被挂起10毫秒到数秒钟不等。
+* 不过这对于使用port的用户程序基本不影响
+* 为减小误差，可以提高程序的优先级（nice）或使用实时调度
+===sleep和usleep===
+* 

@@ -1,0 +1,62 @@
+%title strcut在c语言中的使用
+
+{{{
+#include <stdio.h>
+
+struct MyStruct {
+    int cnt; //成员变量
+
+    //成员函数
+    void (*nullfunc) ();
+    void (*add) (struct MyStruct ms);
+    void (*minus) (struct MyStruct ms);
+};
+//struct类定义结束
+
+//成员函数实现开始，分别按照函数声明实现三个函数
+void realnullfunc (void)
+{
+
+    printf("nullfunc\n");
+
+    return;
+}
+
+void realadd (struct MyStruct ms)
+{
+
+    (ms.cnt)++;
+    printf("%d\n", ms.cnt);
+
+    return;
+}
+
+void realminus (struct MyStruct ms)
+{
+
+    (ms.cnt)--; 
+    printf("%d\n", ms.cnt);
+
+    return;
+}
+
+int main (int argc, char const* argv[])
+{
+
+    // 这句厉害了，注意看哦
+    // 三个成员函数实际是结构体的一部分，利用函数指针实现
+    // 这里大括号实际和给数组初始化一样
+    // 最后将三个实现函数的函数名赋值给函数指针，建立联系
+    // 每个函数的函数名实际就是一个函数指针
+    struct MyStruct ms = {33, realnullfunc, realadd, realminus};
+
+    // 当然少不了调用了，跟类的调用几乎一致
+    ms.nullfunc();
+    ms.add(ms);
+    ms.minus(ms);
+
+    // 缺点是不自动调用构造函数和析构函数
+
+    return 0;
+}
+}}}
