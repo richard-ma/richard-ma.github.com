@@ -1,0 +1,6 @@
+%title Linux I/O port programming
+
+=察看系统I/O port地址=
+/proc/ioports
+
+对应的sys文件系统的位置没有找到，看来sys还是处于实验阶段
