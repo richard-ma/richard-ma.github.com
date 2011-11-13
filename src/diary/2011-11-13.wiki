@@ -1,0 +1,58 @@
+%title Linux Console Device File
+
+=/proc/self/fd/0=
+* 在Gnome下开的Terminal或者使用Terminator打开的窗口都会用到这个设备
+* ls -l一下可以看出，这个文件是一个符号链接，本尊是/dev/pts/N。这里的N是个整数，所有窗口使用的设备文件按从小到大的顺序排列，从1开始。
+
+     例如：
+
+     第一个Terminal窗口/proc/self/fd/0->/dev/pts/1
+
+     第二个Terminal窗口/proc/self/fd/0->/dev/pts/2
+
+     ......
+
+* 巧的是我们知道Linux中的标准输入和输出也是文件，分别是stdin, stdout和stderr，同鞋们应该用过相应的重定向，不管是程序中的还是shell里的。但你们看过他们的本尊么？
+
+     /dev/stdin -> /proc/self/fd/0
+
+     /dev/stdout -> /proc/self/fd/1
+
+     /dev/stderr -> /proc/self/fd/2
+
+* 实际是一个轻巧的三级跳
+
+     /dev/std* -> /proc/self/fd/N -> /dev/pts/N
+    
+* 有些发行版的设备创建脚本会再加一层
+
+     /dev/fd/N -> /proc/self/fd/N -> /dev/pts/N
+     
+     Ubuntu 不是这么干的，而是直接链接到pts: /dev/fd/N -> /dev/pts/N
+
+* 总结：真正的设备是 /dev/pts/N
+* 小实验
+
+     开两个Terminal窗口，例如分别为 /dev/pts/1 和 /dev/pts/2
+
+     echo "hello pts2" > /dev/pts/2 （在 /dev/pts/1 对应的Terminal窗口执行）
+
+     看/dev/pts/2对应的窗口即出现hello pts2字样
+     
+=/dev/ttyN=
+* 这里的N是个整数，分别对应Ctrl+Alt+FN搞出来的console，一般叫tty
+* 他们的stdin, stdout和stderr一样对应到 /proc/self/fd/N
+* 但他们的 /proc/self/fd/N 指向的是 /dev/ttyN 设备
+     
+     /proc/self/fd/N -> /dev/ttyN
+     
+=/dev/tty0=
+* /dev/tty0 永远是指向当前的tty的设备
+=/dev/console=
+* 传闻2.4的内核 /dev/console -> /dev/ttyN （没有这个版本的内核，没验证）
+* 2.6的内核是两个独立的设备，但作用仍然是一个链接到 /dev/ttyN 的设备
+* 总结：真正的设备仍然是 /dev/ttyN
+* 历史上，Linux在带有很多终端的小型机运行时，/dev/console为小型机的键盘和屏幕，而 /dev/ttyN 表示终端上的键盘和屏幕（未考证）
+=/dev/vcsN 和 /dev/vcsaN=
+* /dev/vcsN 是对应 /dev/ttyN 上的第一行内容
+* /dev/vcsaN 是对应 /dev/ttyN 上全部屏幕显示的内容，应该是内存中ttyN的信息
