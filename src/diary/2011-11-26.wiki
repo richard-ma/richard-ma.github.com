@@ -1,0 +1,3 @@
+%title LFS
+
+* P52 libexpect-5.45.a -> /tools/lib/expect5.45/libexpect5.45.so
