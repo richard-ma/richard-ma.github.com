@@ -1,0 +1,124 @@
+= Debian仓库 =
+
+== Debian自由软件方针 ==
+* 免费发行
+* 提供源代码
+* 允许派生和修改
+* 允许对代码做出限制（Debian鼓励对代码不做任何限制）
+* 不得歧视任何人和组织
+* 不得限制应用领域
+* 再发行时必须接受现有许可
+* 许可不能对Debian做修改
+* 许可不得对其他软件产生影响
+* free许可（例如GPL, BSD, Artisic等）
+
+== 归档分类 ==
+=== main ===
+* 不得对其他main以外的包产生依赖
+    * Pre-Depends
+    * Depends
+    * Recommends
+    * Build-Depends
+    * Build-Depends-Indep
+    * 上述都不得有main以外的包
+* 质量不能差到我们不愿意维护的程度
+* 必须符合本文所有要求
+=== contrib ===
+* 质量不能差到我们不愿意维护的程度
+* 必须符合本文所有要求
+* 可以对contrib, non-free有依赖
+* wrapper包，或者对non-free提供包装的包
+=== non-free ===
+* 质量不能差到我们不愿意维护的程度
+* 必须符合本文所有要求（也有无法都满足的可能）
+* 不完全符合DFSG的包都会被放在这里
+
+== Section ==
+* Section在不同的类别中格式不同
+    * main中直接用_section_
+    * contrib和non-free中使用_area/section_
+== 优先级 ==
+* required 基本系统必须的包（缺少系统无法运行）
+* important 在类UNIX上都可以找到的包（非常常用的包）
+* standard 安装基本系统时会被自动安装的包（这部分非常少）
+* optional 众多应用程序（这部分是最多的）
+* extra 与其他包可能有冲突或者及其专用的包（这部分谨慎安装）
+= 二进制包 =
+== 包名 ==
+在Debian中有唯一命名，扩展名为.deb
+定义：_control/Package_
+== 包版本号 ==
+包的版本号，使用“.”分割
+定义：_control/Version_
+== 维护者 ==
+包的维护者，一般留E-mail或者mail list地址
+定义：_control/Maintainer_
+注：当维护者是一个小组时，需要至少有一位充当上传者
+定义：_control/Uploaders_
+== 包简介 ==
+简要介绍包的功能等信息
+定义：_control/Desctiption_
+=== 一行简介 ===
+小于80个字符的简介
+=== 扩展简介 ===
+这部分内容比较长，可以包含更多信息
+== 依赖 ==
+当前包所依赖的其他包
+== 虚拟包 ==
+逻辑上存在的包，为给一个包多个名字，让使用者安装检索更方便
+== 基础系统 ==
+Debian系统运行的最小环境所需要的包，他们的优先级一般都是required和important，他们中的很多都有essential标签
+== Essential包 ==
+Essential包定义了一个系统的最小可用的功能集合
+定义：_control/Essential_
+注：任何包如果要标记为Essential前，都要经过debian-dev邮件列表的讨论
+== 维护者脚本 ==
+维护者脚本是为了避免向最终用户显示无用信息的
+=== 维护者脚本提示 ===
+建议使用update-alternative
+= 源码包 =
+== 标准一致性 ==
+源码包也应该有版本号
+定义：_control/Standards-Version_
+== 包关联 ==
+源码包应包含编译代码所依赖的包，比如编译器等（应该比二进制包依赖要多）
+== 对上游源码做修改 ==
+所有的代码都需要上游开发者修改并提供，如果代码中有违背Debian方针的地方，应该通知上游开发者，并且让他们修改。
+如果需要修改部分配置，例如一些define定义等。可以把这个patch发送给上游开发者，让他们帮忙将这个patch添加到代码中。
+确认_configure_工具能够识别_architecture specification string_
+编辑Makefile的时候，不要直接编辑它，应该编辑对应的Makefile.in文件，因为configure工具会自动生成Makefile
+== Debian 变更记录 ==
+_debian/changelog_
+每次更新格式如下：
+{{{
+包名 (版本号) 发行注记; urgency=优先级
+      [可选的一个空行]
+  * change detials
+    更多细节
+      [可选的一个空行]
+  * even more change detials
+      [可选的一个空行]
+  -- 维护者姓名 <电子邮件>[两个空格]  日期
+}}}
+
+distribution
+定义：_.changes/Distribution_
+
+urgency
+定义：_.changes/Urgency_
+
+date RFC2822 RFC5322
+* day-of week: Mon, Tue, Wed, Thu, Fri, Sat, Sun
+* day: 01-31
+* month: Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec
+* year: 2010
+* hour: 00-23
+* minute: 00-59
+* second: 00-59
+* timezone: +zzzz +0800 (Beijing, China)
+== 版权 ==
+_debian/copyright_
+== 让make报错 ==
+make往往不会因为错误停下，由于sh机制问题。当多余一个的命令执行的时候，应该确保在出错的时候会停下。
+* 尽量使用&&
+* makefile开头使用set -e命令 (set -e 使得当命令返回非零值时直接退出，建议在bash脚本开始时使用）
