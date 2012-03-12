@@ -272,6 +272,105 @@ make往往不会因为错误停下，由于sh机制问题。当多余一个的�
 makefile开头使用set -e命令 (set -e 使得当命令返回非零值时直接退出，建议在bash脚本开始时使用）
 </li>
 </ul>
+<h2 id="toc_3.7">7. 时间戳</h2>
+<p>
+源码包中应该包含上游代码的修改时间，并且要尽可能的对读者可读
+<h2 id="toc_3.8">8. 源码包中的受限对象</h2>
+源码包中不能有硬链接，特殊设备文件，socket文件和setuid，setgid文件
+<h2 id="toc_3.9">9. Main building脚本</h2>
+<em>debian/rules</em>
+这是一个可执行的Makefile，包含从源码包创建二进制包的所有必要信息
+开头第一行必须是
+</p>
+<pre>
+#!/usr/bin/make -f
+</pre>
+<p>
+_dpkg-buildpackage_调用的目标：
+</p>
+<ul>
+<li>
+build（必须的）
+</li>
+<ul>
+<li>
+总管所有构建过程的，但基本不干什么
+</li>
+<li>
+不应该进行任何需要root权限的操作
+</li>
+<li>
+在运行其他目标前，有的包需要先运行clean
+</li>
+</ul>
+<li>
+build-arch, build-indep（可选的）
+</li>
+<ul>
+<li>
+不应该进行任何需要root权限的操作
+</li>
+<li>
+build-arch用于定义编译和链接时所有与硬件结构有关的依赖
+</li>
+<li>
+build-indep用于定义编译和链接是所有与硬件结构无关的依赖
+</li>
+</ul>
+<li>
+binary, binary-arch, binary-indep（必须的）
+</li>
+<ul>
+<li>
+需要root权限调用
+</li>
+<li>
+binary本身不做任何事情，依赖binary-arch和binary-indep完成
+</li>
+<li>
+binary-arch是硬件依赖的过程，binary-indep是硬件无关的过程
+</li>
+</ul>
+<li>
+clean（必须的）
+</li>
+<ul>
+<li>
+清楚所有build和binary目标带来的影响
+</li>
+<li>
+清理工作应按照build或binary的逆序进行
+</li>
+<li>
+清理应该在root权限下执行，避免权限不足有些操作无法进行
+</li>
+</ul>
+<li>
+get-orig-source（可选的）
+</li>
+<ul>
+<li>
+用于下载最新版本的源码
+</li>
+<li>
+完成时应该自己清除产生的临时文件
+</li>
+<li>
+虽然是可选的，但是提供这个目标是个好主意
+</li>
+</ul>
+<li>
+patch（可选的）
+</li>
+<ul>
+<li>
+为源码添加patch的
+</li>
+</ul>
+</ul>
+<p>
+还有其他一些target，都是rules文件内部使用的
+</p>
     </div>
 
     <div id="disqus_thread"></div>
