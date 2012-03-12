@@ -32,6 +32,8 @@
 ==Tree 树算法==
 ==Diagram 图论算法==
 ==Dynamic Programming 动态规划==
+==POJ List==
+[[poj_list]]
 
 =Linux=
 ==Bash==

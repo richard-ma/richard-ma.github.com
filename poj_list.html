@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<link rel="Stylesheet" type="text/css" href="css/style.css" /> 
+<title>Richard Ma's personal Wiki</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+</head> 
+<body> 
+    <div id="navbar">
+    	<ul>
+    		<li> <a class="activated" href="index.html">Wiki</a> </li>
+    		<li> <a href="http://www.richardma.org">Blog</a> </li>
+    		<li> <a href="https://github.com/richard-ma">GitHub</a> </li>
+    		<li class="search">
+                <form action="http://www.google.com/search" method="get">
+                    <input name="sitesearch" value="http://richard-ma.github.com/" type="hidden" />
+                    <input name="hl" value="zh-CN" type="hidden" />
+                    <input name="ie" value="UTF-8" type="hidden" />
+                    <input size="25" name="q" id="query" value="Search..." type="text" 
+                        onfocus="if( this.value=='Search...') {this.value='' };" 
+                        onblur="if( this.value=='') {this.value='Search...' };" />
+                </form>
+            </li>
+    	</ul>
+    </div>
+    <div id="content">
+        <script type="text/javascript">
+            // The following are highly recommended additional parameters. Remove the slashes in front to use.
+            var disqus_identifier = 'poj_list';
+            var disqus_url = 'http://richard-ma.github.com/poj_list.html';
+        </script>
+
+<div class="toc">
+<ul>
+<li><a href="#toc_1"> 水题</a></li>
+<li><a href="#toc_2"> DP</a></li>
+</ul>
+</div>
+
+<h1 id="toc_1"> 水题</h1>
+<ol>
+<li>
+1000 计算两个数字的和
+</li>
+<li>
+1003 按照公式计算，数学归纳法
+</li>
+<li>
+1004 求12个数字的平均数，精确到百分位
+</li>
+<li>
+1005 计算一个点多少年会被半圆包含
+</li>
+<li>
+1008 日期计算，两种历法的换算
+</li>
+<li>
+1028 模拟浏览器的前进和后退，可以是用两个栈，也可以使用双向链表。注意：新的URL加入后，forward栈应该被清空。
+</li>
+<li>
+1046 根据公式计算三维空间中距离最相近的一组
+</li>
+<li>
+1316 计算小于10000的非self number数字，类似质数筛选法
+</li>
+<li>
+1517 根据题目模拟输出
+</li>
+<li>
+1528 判断一个数字和自己所有约数的和的关系
+</li>
+<li>
+1552 计算每组数据中一个数字是另一个数字的二倍关系的数对有多少。注意不要重复计数。
+</li>
+<li>
+1658 判断输入是等差数列还是等比数列，根据规律输出前五项
+</li>
+<li>
+2027 比较a和b的大小
+</li>
+<li>
+2039 根据规律破译密码，字符串和循环操作。用到反转数组。
+</li>
+<li>
+2070 数值比较，注意需要大于等于
+</li>
+<li>
+2081 根据规则计算a\[k\]的值，直接模拟会TLE
+</li>
+<li>
+2092 给出矩阵，统计出现次数第二的数字。可以使用数组计数，输入逐个读入即可，统计不必排序。
+</li>
+<li>
+2105 8位二进制数字为一组，二进制到十进制转换，注意加点分割
+</li>
+<li>
+2109 输入n和m，计算m的1/n次幂。直接用exp(log(n)/m)计算结果（目前只能用C++编译通过，gcc版本WA）
+</li>
+<li>
+2141 给一个替换密码的密钥，将密文译为明文
+</li>
+<li>
+2190 输出ISBN中？位置的数字，如果不存在，输出-1。注意第10位可能出现X，其他位置是0-9的数字。
+</li>
+<li>
+2350 求平均数，保留三位小数
+</li>
+<li>
+2390 求本息和，根据公式计算即可。本金 * （1+利率），注意本金是迭代的，今年的本息和作为下一年的本金。
+</li>
+<li>
+2538 打印map即可
+</li>
+<li>
+2636 给定的n个插线板最多能接多少用电器。公式：n个插线板插座之和 - n + 1
+</li>
+<li>
+2656 津津不高兴的天数，求和比较
+</li>
+<li>
+2840 求整点敲钟次数：1 =&gt; 13, 2 =&gt; 14 ... 12 =&gt; 24, 13 =&gt; 12, 14 =&gt; 12 ..
+</li>
+<li>
+2871 计算相邻两个数字的差
+</li>
+<li>
+2924 输出A到B所有整数的和。数据类型要用long long，不用高精度
+</li>
+<li>
+3062 将输入输出
+</li>
+<li>
+3094 计算所有字母顺序和位置的加权和
+</li>
+<li>
+3100 给B和N，求整数A，使得A^N最接近B，循环模拟即可
+</li>
+<li>
+3507 每组6个数字，去掉最大最小求平均数
+</li>
+<li>
+3672 成对匹配路程时间，求时间限制内可到达最远的距离
+</li>
+<li>
+3673 两个数字每一位相乘相加，需要使用long long类型
+</li>
+<li>
+3751 日期和时间格式转换，字符串解析或者直接暴力转换（注意20和21点还有12点）
+</li>
+<li>
+3980 模运算，直接用运算符（以后要考虑高精度算法和运算符实现）
+</li>
+<li>
+3983 算24，测试用例只有一个（考虑快算24算法，穷举？）
+</li>
+</ol>
+
+<h1 id="toc_2"> DP</h1>
+    </div>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'richard_ma'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+ 
+</body> 
+<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/SyntaxHighlighter.css"></link>
+<script language="javascript" src="syntaxhighlighter/js/shCore.js"></script>
+<script language="javascript" src="syntaxhighlighter/js/shBrushJava.js"></script>
+<script language="javascript" src="syntaxhighlighter/js/shBrushXml.js"></script>
+<script language="javascript" src="syntaxhighlighter/js/shBrushPython.js"></script>
+<script language="javascript" src="syntaxhighlighter/js/shBrushCpp.js"></script>
+<script language="javascript" src="syntaxhighlighter/js/shBrushSql.js"></script>
+<script language="javascript">
+dp.SyntaxHighlighter.ClipboardSwf = 'syntaxhighlighter/clipboard.swf';
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</html> 
