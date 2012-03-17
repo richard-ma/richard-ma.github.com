@@ -1,0 +1,32 @@
+= Introduction =
+== Shell Programming ==
+== Starting Off With a Sha-Bang ==
+
+*Script Return*
+{{{
+    Command
+
+    # exit will return last command return value
+    exit
+}}}
+
+*Root Privileges*
+{{{
+    ROOT_UID=0
+
+    if [ "$UID" -ne "$ROOT_UID" ]
+    then
+        # do something with root privileges
+    else
+        # do something with common user
+    fi
+}}}
+
+*Command line argument testing*
+{{{
+    if [ -n "$1"]; then
+        vars=$1
+    else
+        vars=$DEFAULT_VAL
+    fi
+}}}
