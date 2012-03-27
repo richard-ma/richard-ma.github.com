@@ -85,17 +85,35 @@ v:varname Vim预定义变量
 </ul>
 
 <h5 id="toc_1.1.2.2.1">1.2.2.1. 转义符号列表</h5>
-<p>
+<ul>
+<li>
 \t		    &lt;Tab&gt;
+</li>
+<li>
 \n		    &lt;NL&gt;, line break
+</li>
+<li>
 \r		    &lt;CR&gt;, &lt;Enter&gt;
+</li>
+<li>
 \e		    &lt;Esc&gt;
+</li>
+<li>
 \b		    &lt;BS&gt;, backspace
+</li>
+<li>
 \"	    	"
+</li>
+<li>
 \\		    \, backslash
+</li>
+<li>
 \&lt;Esc&gt;		&lt;Esc&gt;
+</li>
+<li>
 \&lt;C-W&gt;		CTRL-W
-</p>
+</li>
+</ul>
 
 <h4 id="toc_1.1.2.3">1.2.3. 集合类型</h4>
 <h5 id="toc_1.1.2.3.1">1.2.3.1. List</h5>
@@ -115,7 +133,13 @@ list1 + list2 # 连接两个list
 <h3 id="toc_1.1.3">1.3. 赋值</h3>
 <p>
 :let {variable} = {expression}
+</p>
+
+<p>
 :unlet {variable} = {expression} 
+</p>
+
+<p>
 :unlet! {variable} = {expression} # 当不知道变量是否定义的时候，使用这个释放
 </p>
 
@@ -143,75 +167,99 @@ $VAR_NAME 系统环境变量
 </ul>
 
 <h4 id="toc_1.1.5.1">1.5.1. 数学表达式</h4>
-<p>
+<ul>
+<li>
 a + b   加法
+</li>
+<li>
 a - b   减法
+</li>
+<li>
 a * b	乘法
+</li>
+<li>
 a / b   除法
+</li>
+<li>
 a % b	取余
-</p>
+</li>
+</ul>
 
 <h4 id="toc_1.1.5.2">1.5.2. 字符串表达式</h4>
-<p>
+<ul>
+<li>
 "strA" . "strB"     连接两个字符串
-</p>
+</li>
+</ul>
 
 <h4 id="toc_1.1.5.3">1.5.3. 条件表达式</h4>
-<p>
+<ul>
+<li>
 a ? b : c
-</p>
+</li>
+</ul>
 
 <h4 id="toc_1.1.5.4">1.5.4. 条件表达式</h4>
-<p>
+<ul>
+<li>
 a == b
+</li>
+<li>
 a != b
+</li>
+<li>
 a &gt;  b
+</li>
+<li>
 a &gt;= b
+</li>
+<li>
 a &lt;  b
+</li>
+<li>
 a &lt;= b
-</p>
+</li>
+</ul>
 
 <h5 id="toc_1.1.5.4.1">1.5.4.1. 字符串条件表达式</h5>
-<p>
+<ul>
+<li>
 a =~ b		字符串匹配
+</li>
+<li>
 a !~ b		字符串不匹配
-</p>
+</li>
+</ul>
 
 <h3 id="toc_1.1.6">1.6. 分支</h3>
-<p>
+<pre>
 :if {expression}
 :  {statements}
 :endif
-</p>
 
-<p>
 :if {condition}
    {statements}
 :else
    {statements}
 :endif
-</p>
 
-<p>
 :if {condition}
    {statements}
 :elseif {condition}
    {statements}
 :endif
-</p>
+</pre>
 
 <h3 id="toc_1.1.7">1.7. 循环</h3>
-<p>
+<pre>
 :while {condition}
 :  {statements}
 :endwhile
-</p>
 
-<p>
 :for {varname} in {listexpression}
 :  {commands}
 :endfor
-</p>
+</pre>
 
 <h4 id="toc_1.1.7.1">1.7.1. 跳出循环</h4>
 <ul>
@@ -224,7 +272,7 @@ break
 </ul>
 
 <h3 id="toc_1.1.8">1.8. 异常处理</h3>
-<p>
+<pre>
 :try
 :   {statements}
 :catch /E484:/
@@ -232,46 +280,56 @@ break
 :finally
 :   {statements}
 :endtry
-</p>
+</pre>
 
 <h3 id="toc_1.1.9">1.9. 执行</h3>
-<p>
+<pre>
 :execute "command" # command为一个字符串形式的命令
-</p>
+</pre>
 
 <h3 id="toc_1.1.10">1.10. 函数</h3>
 <h4 id="toc_1.1.10.1">1.10.1. 调用函数</h4>
-<p>
+<pre>
 :call function_name(function_params)
-</p>
+</pre>
 
 <h4 id="toc_1.1.10.2">1.10.2. 定义函数</h4>
 <p>
 <strong>函数名第一个字母必须大写</strong>
+</p>
+<pre>
 :function {Function_name}({var1}, {var2}, ...)
 :  {body}
 :endfunction
-</p>
+</pre>
 
 <h5 id="toc_1.1.10.2.1">1.10.2.1. 可变参数数量</h5>
 <p>
 <strong>第一个参数必须写，后面最多可以附加20个参数</strong>
+</p>
+<pre>
 :function Function_name(start_var, ...)
-</p>
+</pre>
 
-<p>
+<ul>
+<li>
 <em>引用附加参数方法是：a:1 - a:20</em>
+</li>
+<li>
 <em>a:0 代表附加参数的个数</em>
-</p>
+</li>
+</ul>
 
 <p>
 删除一个函数
-:delfunction Function_name
 </p>
+<pre>
+:delfunction Function_name
+</pre>
 
 <h2 id="toc_1.2">2. 系统函数</h2>
 <h3 id="toc_1.2.1">2.1. String manipulation</h3>
-<p>
+<pre>
 	nr2char()		get a character by its ASCII value
 	char2nr()		get ASCII value of a character
 	str2nr()		convert a string to a Number
@@ -299,7 +357,7 @@ break
 	byteidx()		byte index of a character in a string
 	repeat()		repeat a string multiple times
 	eval()			evaluate a string expression
-</p>
+</pre>
 
 <h3 id="toc_1.2.2">2.2. List manipulation</h3>
 <p>

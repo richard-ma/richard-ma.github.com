@@ -21,15 +21,15 @@
 * 反斜杠为转义符
 
 ===== 转义符号列表 =====
-\t		    <Tab>
-\n		    <NL>, line break
-\r		    <CR>, <Enter>
-\e		    <Esc>
-\b		    <BS>, backspace
-\"	    	"
-\\		    \, backslash
-\<Esc>		<Esc>
-\<C-W>		CTRL-W
+* \t		    <Tab>
+* \n		    <NL>, line break
+* \r		    <CR>, <Enter>
+* \e		    <Esc>
+* \b		    <BS>, backspace
+* \"	    	"
+* \\		    \, backslash
+* \<Esc>		<Esc>
+* \<C-W>		CTRL-W
 
 ==== 集合类型 ====
 ===== List =====
@@ -42,7 +42,9 @@ list1 + list2 # 连接两个list
 
 === 赋值 ===
 :let {variable} = {expression}
+
 :unlet {variable} = {expression} 
+
 :unlet! {variable} = {expression} # 当不知道变量是否定义的时候，使用这个释放
 
 === 条件真值 ===
@@ -55,31 +57,32 @@ list1 + list2 # 连接两个list
 * @VAR_NAME 寄存器内容（Vim剪贴板）
 
 ==== 数学表达式 ====
-a + b   加法
-a - b   减法
-a * b	乘法
-a / b   除法
-a % b	取余
+* a + b   加法
+* a - b   减法
+* a * b	乘法
+* a / b   除法
+* a % b	取余
 
 ==== 字符串表达式 ====
-"strA" . "strB"     连接两个字符串
+* "strA" . "strB"     连接两个字符串
 
 ==== 条件表达式 ====
-a ? b : c
+* a ? b : c
 
 ==== 条件表达式 ====
-a == b
-a != b
-a >  b
-a >= b
-a <  b
-a <= b
+* a == b
+* a != b
+* a >  b
+* a >= b
+* a <  b
+* a <= b
 
 ===== 字符串条件表达式 =====
-a =~ b		字符串匹配
-a !~ b		字符串不匹配
+* a =~ b		字符串匹配
+* a !~ b		字符串不匹配
 
 === 分支 ===
+{{{
 :if {expression}
 :  {statements}
 :endif
@@ -95,8 +98,10 @@ a !~ b		字符串不匹配
 :elseif {condition}
    {statements}
 :endif
+}}}
 
 === 循环 ===
+{{{
 :while {condition}
 :  {statements}
 :endwhile
@@ -104,12 +109,14 @@ a !~ b		字符串不匹配
 :for {varname} in {listexpression}
 :  {commands}
 :endfor
+}}}
 
 ==== 跳出循环 ====
 * continue
 * break
 
 === 异常处理 ===
+{{{
 :try
 :   {statements}
 :catch /E484:/
@@ -117,32 +124,44 @@ a !~ b		字符串不匹配
 :finally
 :   {statements}
 :endtry
+}}}
 
 === 执行 ===
+{{{
 :execute "command" # command为一个字符串形式的命令
+}}}
 
 === 函数 ===
 ==== 调用函数 ====
+{{{
 :call function_name(function_params)
+}}}
 
 ==== 定义函数 ====
 *函数名第一个字母必须大写*
+{{{
 :function {Function_name}({var1}, {var2}, ...)
 :  {body}
 :endfunction
+}}}
 
 ===== 可变参数数量 =====
 *第一个参数必须写，后面最多可以附加20个参数*
+{{{
 :function Function_name(start_var, ...)
+}}}
 
-_引用附加参数方法是：a:1 - a:20_
-_a:0 代表附加参数的个数_
+* _引用附加参数方法是：a:1 - a:20_
+* _a:0 代表附加参数的个数_
 
 删除一个函数
+{{{
 :delfunction Function_name
+}}}
 
 == 系统函数 ==
 === String manipulation ===
+{{{
 	nr2char()		get a character by its ASCII value
 	char2nr()		get ASCII value of a character
 	str2nr()		convert a string to a Number
@@ -170,6 +189,7 @@ _a:0 代表附加参数的个数_
 	byteidx()		byte index of a character in a string
 	repeat()		repeat a string multiple times
 	eval()			evaluate a string expression
+}}}
 
 === List manipulation ===
 	get()			get an item without error for wrong index
