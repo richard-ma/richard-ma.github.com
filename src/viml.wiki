@@ -189,9 +189,10 @@ list1 + list2 # 连接两个list
 	byteidx()		byte index of a character in a string
 	repeat()		repeat a string multiple times
 	eval()			evaluate a string expression
-}}}
 
+}}}
 === List manipulation ===
+{{{
 	get()			get an item without error for wrong index
 	len()			number of items in a List
 	empty()			check if List is empty
@@ -216,7 +217,9 @@ list1 + list2 # 连接两个list
 	count()			count number of times a value appears in a List
 	repeat()		repeat a List multiple times
 
+}}}
 === Dictionary manipulation ===
+{{{
 	get()			get an entry without an error for a wrong key
 	len()			number of entries in a Dictionary
 	has_key()		check whether a key appears in a Dictionary
@@ -235,7 +238,9 @@ list1 + list2 # 连接两个list
 	min()			minimum value in a Dictionary
 	count()			count number of times a value appears
 
+}}}
 === Floating point computation ===
+{{{
 	float2nr()		convert Float to Number
 	abs()			absolute value (also works for Number)
 	round()			round off
@@ -249,7 +254,9 @@ list1 + list2 # 连接两个list
 	cos()			cosine
 	atan()			arc tangent
 
+}}}
 === Variables ===
+{{{
 	type()			type of a variable
 	islocked()		check if a variable is locked
 	function()		get a Funcref for a function name
@@ -261,7 +268,9 @@ list1 + list2 # 连接两个list
 	settabwinvar()		set a variable in a specific window & tab page
 	garbagecollect()	possibly free memory
 
+}}}
 === Cursor and mark position ===
+{{{
 	col()			column number of the cursor or a mark
 	virtcol()		screen column of the cursor or a mark
 	line()			line number of the cursor or mark
@@ -274,7 +283,9 @@ list1 + list2 # 连接两个list
 	line2byte()		byte count at a specific line
 	diff_filler()		get the number of filler lines above a line
 
+}}}
 === Working with text in the current buffer ===
+{{{
 	getline()		get a line or list of lines from the buffer
 	setline()		replace a line in the buffer
 	append()		append line or list of lines in the buffer
@@ -289,7 +300,9 @@ list1 + list2 # 连接两个list
 	searchpairpos()		find the other end of a start/skip/end
 	searchdecl()		search for the declaration of a name
 
+}}}
 === System functions and manipulation of files ===
+{{{
 	glob()			expand wildcards
 	globpath()		expand wildcards in a number of directories
 	findfile()		find a file in a list of directories
@@ -316,14 +329,18 @@ list1 + list2 # 连接两个list
 	readfile()		read a file into a List of lines
 	writefile()		write a List of lines into a file
 
+}}}
 === Date and Time ===
+{{{
 	getftime()		get last modification time of a file
 	localtime()		get current time in seconds
 	strftime()		convert time to a string
 	reltime()		get the current or elapsed time accurately
 	reltimestr()		convert reltime() result to a string
 
+}}}
 === Buffers, windows and the argument list ===
+{{{
 	argc()			number of entries in the argument list
 	argidx()		current position in the argument list
 	argv()			get one entry from the argument list
@@ -340,32 +357,42 @@ list1 + list2 # 连接两个list
 	winbufnr()		get the buffer number of a specific window
 	getbufline()		get a list of lines from the specified buffer
 
+}}}
 === Command line ===
+{{{
 	getcmdline()		get the current command line
 	getcmdpos()		get position of the cursor in the command line
 	setcmdpos()		set position of the cursor in the command line
 	getcmdtype()		return the current command-line type
 
+}}}
 === Quickfix and location lists ===
+{{{
 	getqflist()		list of quickfix errors
 	setqflist()		modify a quickfix list
 	getloclist()		list of location list items
 	setloclist()		modify a location list
 
+}}}
 === Insert mode completion ===
+{{{
 	complete()		set found matches
 	complete_add()		add to found matches
 	complete_check()	check if completion should be aborted
 	pumvisible()		check if the popup menu is displayed
 
+}}}
 === Folding ===
+{{{
 	foldclosed()		check for a closed fold at a specific line
 	foldclosedend()		like foldclosed() but return the last line
 	foldlevel()		check for the fold level at a specific line
 	foldtext()		generate the line displayed for a closed fold
 	foldtextresult()	get the text displayed for a closed fold
 
+}}}
 === Syntax and highlighting ===
+{{{
 	clearmatches()		clear all matches defined by |matchadd()| and the | :match| commands
 	getmatches()		get all matches defined by |matchadd()| and the |:match| commands
 	hlexists()		check if a highlight group exists
@@ -379,18 +406,24 @@ list1 + list2 # 连接两个list
 	matchdelete()		delete a match defined by |matchadd()| or a |:match| command
 	setmatches()		restore a list of matches saved by |getmatches()|
 
+}}}
 === Spelling ===
+{{{
 	spellbadword()		locate badly spelled word at or after cursor
 	spellsuggest()		return suggested spelling corrections
 	soundfold()		return the sound-a-like equivalent of a word
 
+}}}
 === History ===
+{{{
 	histadd()		add an item to a history
 	histdel()		delete an item from a history
 	histget()		get an item from a history
 	histnr()		get highest index of a history list
 
+}}}
 === Interactive ===
+{{{
 	browse()		put up a file requester
 	browsedir()		put up a directory requester
 	confirm()		let the user make a choice
@@ -404,12 +437,16 @@ list1 + list2 # 连接两个list
 	inputsave()		save and clear typeahead
 	inputrestore()		restore typeahead
 
+}}}
 === GUI ===
+{{{
 	getfontname()		get name of current font being used
 	getwinposx()		X position of the GUI Vim window
 	getwinposy()		Y position of the GUI Vim window
-
+	
+}}}
 === Vim server ===
+{{{
 	serverlist()		return the list of server names
 	remote_send()		send command characters to a Vim server
 	remote_expr()		evaluate an expression in a Vim server
@@ -418,15 +455,19 @@ list1 + list2 # 连接两个list
 	remote_read()		read a reply from a Vim server
 	foreground()		move the Vim window to the foreground
 	remote_foreground()	move the Vim server window to the foreground
-
+	
+}}}
 === Window size and position ===
+{{{
 	winheight()		get height of a specific window
 	winwidth()		get width of a specific window
 	winrestcmd()		return command to restore window sizes
 	winsaveview()		get view of current window
 	winrestview()		restore saved view of current window
 
+}}}
 === Various ===
+{{{
 	mode()			get current editing mode
 	visualmode()		last visual mode used
 	hasmapto()		check if a mapping exists
@@ -449,3 +490,4 @@ list1 + list2 # 连接两个list
 
 	taglist()		get list of matching tags
 	tagfiles()		get a list of tags files
+}}}

@@ -357,10 +357,10 @@ break
 	byteidx()		byte index of a character in a string
 	repeat()		repeat a string multiple times
 	eval()			evaluate a string expression
-</pre>
 
+</pre>
 <h3 id="toc_1.2.2">2.2. List manipulation</h3>
-<p>
+<pre>
 	get()			get an item without error for wrong index
 	len()			number of items in a List
 	empty()			check if List is empty
@@ -384,10 +384,10 @@ break
 	min()			minimum value in a List
 	count()			count number of times a value appears in a List
 	repeat()		repeat a List multiple times
-</p>
 
+</pre>
 <h3 id="toc_1.2.3">2.3. Dictionary manipulation</h3>
-<p>
+<pre>
 	get()			get an entry without an error for a wrong key
 	len()			number of entries in a Dictionary
 	has_key()		check whether a key appears in a Dictionary
@@ -405,10 +405,10 @@ break
 	max()			maximum value in a Dictionary
 	min()			minimum value in a Dictionary
 	count()			count number of times a value appears
-</p>
 
+</pre>
 <h3 id="toc_1.2.4">2.4. Floating point computation</h3>
-<p>
+<pre>
 	float2nr()		convert Float to Number
 	abs()			absolute value (also works for Number)
 	round()			round off
@@ -421,10 +421,10 @@ break
 	sin()			sine
 	cos()			cosine
 	atan()			arc tangent
-</p>
 
+</pre>
 <h3 id="toc_1.2.5">2.5. Variables</h3>
-<p>
+<pre>
 	type()			type of a variable
 	islocked()		check if a variable is locked
 	function()		get a Funcref for a function name
@@ -435,10 +435,10 @@ break
 	setwinvar()		set a variable in a specific window
 	settabwinvar()		set a variable in a specific window &amp; tab page
 	garbagecollect()	possibly free memory
-</p>
 
+</pre>
 <h3 id="toc_1.2.6">2.6. Cursor and mark position</h3>
-<p>
+<pre>
 	col()			column number of the cursor or a mark
 	virtcol()		screen column of the cursor or a mark
 	line()			line number of the cursor or mark
@@ -450,10 +450,10 @@ break
 	byte2line()		get line number at a specific byte count
 	line2byte()		byte count at a specific line
 	diff_filler()		get the number of filler lines above a line
-</p>
 
+</pre>
 <h3 id="toc_1.2.7">2.7. Working with text in the current buffer</h3>
-<p>
+<pre>
 	getline()		get a line or list of lines from the buffer
 	setline()		replace a line in the buffer
 	append()		append line or list of lines in the buffer
@@ -467,10 +467,10 @@ break
 	searchpair()		find the other end of a start/skip/end
 	searchpairpos()		find the other end of a start/skip/end
 	searchdecl()		search for the declaration of a name
-</p>
 
+</pre>
 <h3 id="toc_1.2.8">2.8. System functions and manipulation of files</h3>
-<p>
+<pre>
 	glob()			expand wildcards
 	globpath()		expand wildcards in a number of directories
 	findfile()		find a file in a list of directories
@@ -496,19 +496,19 @@ break
 	hostname()		name of the system
 	readfile()		read a file into a List of lines
 	writefile()		write a List of lines into a file
-</p>
 
+</pre>
 <h3 id="toc_1.2.9">2.9. Date and Time</h3>
-<p>
+<pre>
 	getftime()		get last modification time of a file
 	localtime()		get current time in seconds
 	strftime()		convert time to a string
 	reltime()		get the current or elapsed time accurately
 	reltimestr()		convert reltime() result to a string
-</p>
 
+</pre>
 <h3 id="toc_1.2.10">2.10. Buffers, windows and the argument list</h3>
-<p>
+<pre>
 	argc()			number of entries in the argument list
 	argidx()		current position in the argument list
 	argv()			get one entry from the argument list
@@ -524,43 +524,43 @@ break
 	bufwinnr()		get the window number of a specific buffer
 	winbufnr()		get the buffer number of a specific window
 	getbufline()		get a list of lines from the specified buffer
-</p>
 
+</pre>
 <h3 id="toc_1.2.11">2.11. Command line</h3>
-<p>
+<pre>
 	getcmdline()		get the current command line
 	getcmdpos()		get position of the cursor in the command line
 	setcmdpos()		set position of the cursor in the command line
 	getcmdtype()		return the current command-line type
-</p>
 
+</pre>
 <h3 id="toc_1.2.12">2.12. Quickfix and location lists</h3>
-<p>
+<pre>
 	getqflist()		list of quickfix errors
 	setqflist()		modify a quickfix list
 	getloclist()		list of location list items
 	setloclist()		modify a location list
-</p>
 
+</pre>
 <h3 id="toc_1.2.13">2.13. Insert mode completion</h3>
-<p>
+<pre>
 	complete()		set found matches
 	complete_add()		add to found matches
 	complete_check()	check if completion should be aborted
 	pumvisible()		check if the popup menu is displayed
-</p>
 
+</pre>
 <h3 id="toc_1.2.14">2.14. Folding</h3>
-<p>
+<pre>
 	foldclosed()		check for a closed fold at a specific line
 	foldclosedend()		like foldclosed() but return the last line
 	foldlevel()		check for the fold level at a specific line
 	foldtext()		generate the line displayed for a closed fold
 	foldtextresult()	get the text displayed for a closed fold
-</p>
 
+</pre>
 <h3 id="toc_1.2.15">2.15. Syntax and highlighting</h3>
-<p>
+<pre>
 	clearmatches()		clear all matches defined by |matchadd()| and the | :match| commands
 	getmatches()		get all matches defined by |matchadd()| and the |:match| commands
 	hlexists()		check if a highlight group exists
@@ -573,25 +573,25 @@ break
 	matcharg()		get info about |:match| arguments
 	matchdelete()		delete a match defined by |matchadd()| or a |:match| command
 	setmatches()		restore a list of matches saved by |getmatches()|
-</p>
 
+</pre>
 <h3 id="toc_1.2.16">2.16. Spelling</h3>
-<p>
+<pre>
 	spellbadword()		locate badly spelled word at or after cursor
 	spellsuggest()		return suggested spelling corrections
 	soundfold()		return the sound-a-like equivalent of a word
-</p>
 
+</pre>
 <h3 id="toc_1.2.17">2.17. History</h3>
-<p>
+<pre>
 	histadd()		add an item to a history
 	histdel()		delete an item from a history
 	histget()		get an item from a history
 	histnr()		get highest index of a history list
-</p>
 
+</pre>
 <h3 id="toc_1.2.18">2.18. Interactive</h3>
-<p>
+<pre>
 	browse()		put up a file requester
 	browsedir()		put up a directory requester
 	confirm()		let the user make a choice
@@ -604,17 +604,17 @@ break
 	inputdialog()		get a line from the user in a dialog
 	inputsave()		save and clear typeahead
 	inputrestore()		restore typeahead
-</p>
 
+</pre>
 <h3 id="toc_1.2.19">2.19. GUI</h3>
-<p>
+<pre>
 	getfontname()		get name of current font being used
 	getwinposx()		X position of the GUI Vim window
 	getwinposy()		Y position of the GUI Vim window
-</p>
-
+	
+</pre>
 <h3 id="toc_1.2.20">2.20. Vim server</h3>
-<p>
+<pre>
 	serverlist()		return the list of server names
 	remote_send()		send command characters to a Vim server
 	remote_expr()		evaluate an expression in a Vim server
@@ -623,19 +623,19 @@ break
 	remote_read()		read a reply from a Vim server
 	foreground()		move the Vim window to the foreground
 	remote_foreground()	move the Vim server window to the foreground
-</p>
-
+	
+</pre>
 <h3 id="toc_1.2.21">2.21. Window size and position</h3>
-<p>
+<pre>
 	winheight()		get height of a specific window
 	winwidth()		get width of a specific window
 	winrestcmd()		return command to restore window sizes
 	winsaveview()		get view of current window
 	winrestview()		restore saved view of current window
-</p>
 
+</pre>
 <h3 id="toc_1.2.22">2.22. Various</h3>
-<p>
+<pre>
 	mode()			get current editing mode
 	visualmode()		last visual mode used
 	hasmapto()		check if a mapping exists
@@ -648,23 +648,17 @@ break
 	did_filetype()		check if a FileType autocommand was used
 	eventhandler()		check if invoked by an event handler
 	getpid()		get process ID of Vim
-</p>
 
-<p>
 	libcall()		call a function in an external library
 	libcallnr()		idem, returning a number
-</p>
 
-<p>
 	getreg()		get contents of a register
 	getregtype()		get type of a register
 	setreg()		set contents and type of a register
-</p>
 
-<p>
 	taglist()		get list of matching tags
 	tagfiles()		get a list of tags files
-</p>
+</pre>
     </div>
 
     <div id="disqus_thread"></div>
