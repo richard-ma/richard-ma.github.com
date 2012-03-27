@@ -41,11 +41,10 @@
     * [[coreutils]]
     * [[pam]]
     * [[vsftpd]]
-===Vim===
-=======
 ==Vim==
     * [[zencoding]]
     * [[neocomplcache]]
+    * [[viml]]
 ==TJLUG Presentation==
     * [[Linux Study Guide]]
 ==yabasic==
