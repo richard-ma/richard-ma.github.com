@@ -1,0 +1,639 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<link rel="Stylesheet" type="text/css" href="../css/style.css" /> 
+<title>Richard Ma's personal Wiki</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+</head> 
+<body> 
+    <div id="navbar">
+    	<ul>
+    		<li> <a class="activated" href="../index.html">Wiki</a> </li>
+    		<li> <a href="http://www.richardma.org">Blog</a> </li>
+    		<li> <a href="https://github.com/richard-ma">GitHub</a> </li>
+    		<li class="search">
+                <form action="http://www.google.com/search" method="get">
+                    <input name="sitesearch" value="http://richard-ma.github.com/" type="hidden" />
+                    <input name="hl" value="zh-CN" type="hidden" />
+                    <input name="ie" value="UTF-8" type="hidden" />
+                    <input size="25" name="q" id="query" value="Search..." type="text" 
+                        onfocus="if( this.value=='Search...') {this.value='' };" 
+                        onblur="if( this.value=='') {this.value='Search...' };" />
+                </form>
+            </li>
+    	</ul>
+    </div>
+    <div id="content">
+        <script type="text/javascript">
+            // The following are highly recommended additional parameters. Remove the slashes in front to use.
+            var disqus_identifier = '2012-03-27';
+            var disqus_url = 'http://richard-ma.github.com/2012-03-27.html';
+        </script>
+
+<h1 id="toc_1"> VimL</h1>
+<h2 id="toc_1.1">1. 语法</h2>
+<h3 id="toc_1.1.1">1.1. 常量</h3>
+<ul>
+<li>
+0x, 0X代表16进制数
+</li>
+<li>
+0开头代表8进制数
+</li>
+<li>
+其他为10进制数
+</li>
+</ul>
+
+<h3 id="toc_1.1.2">1.2. 变量</h3>
+<ul>
+<li>
+变量名由ASCII字符，数字和下划线组成
+</li>
+</ul>
+
+<h4 id="toc_1.1.2.1">1.2.1. 变量作用域</h4>
+<ul>
+<li>
+varname 全局变量
+</li>
+<li>
+s:varname 本文件
+</li>
+<li>
+b:varname 缓冲区
+</li>
+<li>
+w:varname 窗口
+</li>
+<li>
+g:varname 全局变量（函数中）
+</li>
+<li>
+v:varname Vim预定义变量
+</li>
+</ul>
+
+<h4 id="toc_1.1.2.2">1.2.2. 字符串变量</h4>
+<ul>
+<li>
+使用双引号或单引号
+</li>
+<li>
+反斜杠为转义符
+</li>
+</ul>
+
+<h5 id="toc_1.1.2.2.1">1.2.2.1. 转义符号列表</h5>
+<p>
+\t		    &lt;Tab&gt;
+\n		    &lt;NL&gt;, line break
+\r		    &lt;CR&gt;, &lt;Enter&gt;
+\e		    &lt;Esc&gt;
+\b		    &lt;BS&gt;, backspace
+\"	    	"
+\\		    \, backslash
+\&lt;Esc&gt;		&lt;Esc&gt;
+\&lt;C-W&gt;		CTRL-W
+</p>
+
+<h4 id="toc_1.1.2.3">1.2.3. 集合类型</h4>
+<h5 id="toc_1.1.2.3.1">1.2.3.1. List</h5>
+<p>
+:let list_name = [ele1, ele2, ...]
+</p>
+
+<p>
+list1 + list2 # 连接两个list
+</p>
+
+<h5 id="toc_1.1.2.3.2">1.2.3.2. Dictionary</h5>
+<p>
+:let dict = {key1: val1, key2: val2, ...}
+</p>
+
+<h3 id="toc_1.1.3">1.3. 赋值</h3>
+<p>
+:let {variable} = {expression}
+:unlet {variable} = {expression} 
+:unlet! {variable} = {expression} # 当不知道变量是否定义的时候，使用这个释放
+</p>
+
+<h3 id="toc_1.1.4">1.4. 条件真值</h3>
+<ul>
+<li>
+0 - True
+</li>
+<li>
+!0 - False
+</li>
+</ul>
+
+<h3 id="toc_1.1.5">1.5. 表达式</h3>
+<ul>
+<li>
+$VAR_NAME 系统环境变量
+</li>
+<li>
+&amp;VAR_NAME Vim预定义变量
+</li>
+<li>
+@VAR_NAME 寄存器内容（Vim剪贴板）
+</li>
+</ul>
+
+<h4 id="toc_1.1.5.1">1.5.1. 数学表达式</h4>
+<p>
+a + b   加法
+a - b   减法
+a * b	乘法
+a / b   除法
+a % b	取余
+</p>
+
+<h4 id="toc_1.1.5.2">1.5.2. 字符串表达式</h4>
+<p>
+"strA" . "strB"     连接两个字符串
+</p>
+
+<h4 id="toc_1.1.5.3">1.5.3. 条件表达式</h4>
+<p>
+a ? b : c
+</p>
+
+<h4 id="toc_1.1.5.4">1.5.4. 条件表达式</h4>
+<p>
+a == b
+a != b
+a &gt;  b
+a &gt;= b
+a &lt;  b
+a &lt;= b
+</p>
+
+<h5 id="toc_1.1.5.4.1">1.5.4.1. 字符串条件表达式</h5>
+<p>
+a =~ b		字符串匹配
+a !~ b		字符串不匹配
+</p>
+
+<h3 id="toc_1.1.6">1.6. 分支</h3>
+<p>
+:if {expression}
+:  {statements}
+:endif
+</p>
+
+<p>
+:if {condition}
+   {statements}
+:else
+   {statements}
+:endif
+</p>
+
+<p>
+:if {condition}
+   {statements}
+:elseif {condition}
+   {statements}
+:endif
+</p>
+
+<h3 id="toc_1.1.7">1.7. 循环</h3>
+<p>
+:while {condition}
+:  {statements}
+:endwhile
+</p>
+
+<p>
+:for {varname} in {listexpression}
+:  {commands}
+:endfor
+</p>
+
+<h4 id="toc_1.1.7.1">1.7.1. 跳出循环</h4>
+<ul>
+<li>
+continue
+</li>
+<li>
+break
+</li>
+</ul>
+
+<h3 id="toc_1.1.8">1.8. 异常处理</h3>
+<p>
+:try
+:   {statements}
+:catch /E484:/
+:   {statements}
+:finally
+:   {statements}
+:endtry
+</p>
+
+<h3 id="toc_1.1.9">1.9. 执行</h3>
+<p>
+:execute "command" # command为一个字符串形式的命令
+</p>
+
+<h3 id="toc_1.1.10">1.10. 函数</h3>
+<h4 id="toc_1.1.10.1">1.10.1. 调用函数</h4>
+<p>
+:call function_name(function_params)
+</p>
+
+<h4 id="toc_1.1.10.2">1.10.2. 定义函数</h4>
+<p>
+<strong>函数名第一个字母必须大写</strong>
+:function {Function_name}({var1}, {var2}, ...)
+:  {body}
+:endfunction
+</p>
+
+<h5 id="toc_1.1.10.2.1">1.10.2.1. 可变参数数量</h5>
+<p>
+<strong>第一个参数必须写，后面最多可以附加20个参数</strong>
+:function Function_name(start_var, ...)
+</p>
+
+<p>
+<em>引用附加参数方法是：a:1 - a:20</em>
+<em>a:0 代表附加参数的个数</em>
+</p>
+
+<p>
+删除一个函数
+:delfunction Function_name
+</p>
+
+<h2 id="toc_1.2">2. 系统函数</h2>
+<h3 id="toc_1.2.1">2.1. String manipulation</h3>
+<p>
+	nr2char()		get a character by its ASCII value
+	char2nr()		get ASCII value of a character
+	str2nr()		convert a string to a Number
+	str2float()		convert a string to a Float
+	printf()		format a string according to % items
+	escape()		escape characters in a string with a '\'
+	shellescape()		escape a string for use with a shell command
+	fnameescape()		escape a file name for use with a Vim command
+	tr()			translate characters from one set to another
+	strtrans()		translate a string to make it printable
+	tolower()		turn a string to lowercase
+	toupper()		turn a string to uppercase
+	match()			position where a pattern matches in a string
+	matchend()		position where a pattern match ends in a string
+	matchstr()		match of a pattern in a string
+	matchlist()		like matchstr() and also return submatches
+	stridx()		first index of a short string in a long string
+	strridx()		last index of a short string in a long string
+	strlen()		length of a string
+	substitute()		substitute a pattern match with a string
+	submatch()		get a specific match in a ":substitute"
+	strpart()		get part of a string
+	expand()		expand special keywords
+	iconv()			convert text from one encoding to another
+	byteidx()		byte index of a character in a string
+	repeat()		repeat a string multiple times
+	eval()			evaluate a string expression
+</p>
+
+<h3 id="toc_1.2.2">2.2. List manipulation</h3>
+<p>
+	get()			get an item without error for wrong index
+	len()			number of items in a List
+	empty()			check if List is empty
+	insert()		insert an item somewhere in a List
+	add()			append an item to a List
+	extend()		append a List to a List
+	remove()		remove one or more items from a List
+	copy()			make a shallow copy of a List
+	deepcopy()		make a full copy of a List
+	filter()		remove selected items from a List
+	map()			change each List item
+	sort()			sort a List
+	reverse()		reverse the order of a List
+	split()			split a String into a List
+	join()			join List items into a String
+	range()			return a List with a sequence of numbers
+	string()		String representation of a List
+	call()			call a function with List as arguments
+	index()			index of a value in a List
+	max()			maximum value in a List
+	min()			minimum value in a List
+	count()			count number of times a value appears in a List
+	repeat()		repeat a List multiple times
+</p>
+
+<h3 id="toc_1.2.3">2.3. Dictionary manipulation</h3>
+<p>
+	get()			get an entry without an error for a wrong key
+	len()			number of entries in a Dictionary
+	has_key()		check whether a key appears in a Dictionary
+	empty()			check if Dictionary is empty
+	remove()		remove an entry from a Dictionary
+	extend()		add entries from one Dictionary to another
+	filter()		remove selected entries from a Dictionary
+	map()			change each Dictionary entry
+	keys()			get List of Dictionary keys
+	values()		get List of Dictionary values
+	items()			get List of Dictionary key-value pairs
+	copy()			make a shallow copy of a Dictionary
+	deepcopy()		make a full copy of a Dictionary
+	string()		String representation of a Dictionary
+	max()			maximum value in a Dictionary
+	min()			minimum value in a Dictionary
+	count()			count number of times a value appears
+</p>
+
+<h3 id="toc_1.2.4">2.4. Floating point computation</h3>
+<p>
+	float2nr()		convert Float to Number
+	abs()			absolute value (also works for Number)
+	round()			round off
+	ceil()			round up
+	floor()			round down
+	trunc()			remove value after decimal point
+	log10()			logarithm to base 10
+	pow()			value of x to the exponent y
+	sqrt()			square root
+	sin()			sine
+	cos()			cosine
+	atan()			arc tangent
+</p>
+
+<h3 id="toc_1.2.5">2.5. Variables</h3>
+<p>
+	type()			type of a variable
+	islocked()		check if a variable is locked
+	function()		get a Funcref for a function name
+	getbufvar()		get a variable value from a specific buffer
+	setbufvar()		set a variable in a specific buffer
+	getwinvar()		get a variable from specific window
+	gettabwinvar()		get a variable from specific window &amp; tab page
+	setwinvar()		set a variable in a specific window
+	settabwinvar()		set a variable in a specific window &amp; tab page
+	garbagecollect()	possibly free memory
+</p>
+
+<h3 id="toc_1.2.6">2.6. Cursor and mark position</h3>
+<p>
+	col()			column number of the cursor or a mark
+	virtcol()		screen column of the cursor or a mark
+	line()			line number of the cursor or mark
+	wincol()		window column number of the cursor
+	winline()		window line number of the cursor
+	cursor()		position the cursor at a line/column
+	getpos()		get position of cursor, mark, etc.
+	setpos()		set position of cursor, mark, etc.
+	byte2line()		get line number at a specific byte count
+	line2byte()		byte count at a specific line
+	diff_filler()		get the number of filler lines above a line
+</p>
+
+<h3 id="toc_1.2.7">2.7. Working with text in the current buffer</h3>
+<p>
+	getline()		get a line or list of lines from the buffer
+	setline()		replace a line in the buffer
+	append()		append line or list of lines in the buffer
+	indent()		indent of a specific line
+	cindent()		indent according to C indenting
+	lispindent()		indent according to Lisp indenting
+	nextnonblank()		find next non-blank line
+	prevnonblank()		find previous non-blank line
+	search()		find a match for a pattern
+	searchpos()		find a match for a pattern
+	searchpair()		find the other end of a start/skip/end
+	searchpairpos()		find the other end of a start/skip/end
+	searchdecl()		search for the declaration of a name
+</p>
+
+<h3 id="toc_1.2.8">2.8. System functions and manipulation of files</h3>
+<p>
+	glob()			expand wildcards
+	globpath()		expand wildcards in a number of directories
+	findfile()		find a file in a list of directories
+	finddir()		find a directory in a list of directories
+	resolve()		find out where a shortcut points to
+	fnamemodify()		modify a file name
+	pathshorten()		shorten directory names in a path
+	simplify()		simplify a path without changing its meaning
+	executable()		check if an executable program exists
+	filereadable()		check if a file can be read
+	filewritable()		check if a file can be written to
+	getfperm()		get the permissions of a file
+	getftype()		get the kind of a file
+	isdirectory()		check if a directory exists
+	getfsize()		get the size of a file
+	getcwd()		get the current working directory
+	haslocaldir()		check if current window used |:lcd|
+	tempname()		get the name of a temporary file
+	mkdir()			create a new directory
+	delete()		delete a file
+	rename()		rename a file
+	system()		get the result of a shell command
+	hostname()		name of the system
+	readfile()		read a file into a List of lines
+	writefile()		write a List of lines into a file
+</p>
+
+<h3 id="toc_1.2.9">2.9. Date and Time</h3>
+<p>
+	getftime()		get last modification time of a file
+	localtime()		get current time in seconds
+	strftime()		convert time to a string
+	reltime()		get the current or elapsed time accurately
+	reltimestr()		convert reltime() result to a string
+</p>
+
+<h3 id="toc_1.2.10">2.10. Buffers, windows and the argument list</h3>
+<p>
+	argc()			number of entries in the argument list
+	argidx()		current position in the argument list
+	argv()			get one entry from the argument list
+	bufexists()		check if a buffer exists
+	buflisted()		check if a buffer exists and is listed
+	bufloaded()		check if a buffer exists and is loaded
+	bufname()		get the name of a specific buffer
+	bufnr()			get the buffer number of a specific buffer
+	tabpagebuflist()	return List of buffers in a tab page
+	tabpagenr()		get the number of a tab page
+	tabpagewinnr()		like winnr() for a specified tab page
+	winnr()			get the window number for the current window
+	bufwinnr()		get the window number of a specific buffer
+	winbufnr()		get the buffer number of a specific window
+	getbufline()		get a list of lines from the specified buffer
+</p>
+
+<h3 id="toc_1.2.11">2.11. Command line</h3>
+<p>
+	getcmdline()		get the current command line
+	getcmdpos()		get position of the cursor in the command line
+	setcmdpos()		set position of the cursor in the command line
+	getcmdtype()		return the current command-line type
+</p>
+
+<h3 id="toc_1.2.12">2.12. Quickfix and location lists</h3>
+<p>
+	getqflist()		list of quickfix errors
+	setqflist()		modify a quickfix list
+	getloclist()		list of location list items
+	setloclist()		modify a location list
+</p>
+
+<h3 id="toc_1.2.13">2.13. Insert mode completion</h3>
+<p>
+	complete()		set found matches
+	complete_add()		add to found matches
+	complete_check()	check if completion should be aborted
+	pumvisible()		check if the popup menu is displayed
+</p>
+
+<h3 id="toc_1.2.14">2.14. Folding</h3>
+<p>
+	foldclosed()		check for a closed fold at a specific line
+	foldclosedend()		like foldclosed() but return the last line
+	foldlevel()		check for the fold level at a specific line
+	foldtext()		generate the line displayed for a closed fold
+	foldtextresult()	get the text displayed for a closed fold
+</p>
+
+<h3 id="toc_1.2.15">2.15. Syntax and highlighting</h3>
+<p>
+	clearmatches()		clear all matches defined by |matchadd()| and the | :match| commands
+	getmatches()		get all matches defined by |matchadd()| and the |:match| commands
+	hlexists()		check if a highlight group exists
+	hlID()			get ID of a highlight group
+	synID()			get syntax ID at a specific position
+	synIDattr()		get a specific attribute of a syntax ID
+	synIDtrans()		get translated syntax ID
+	diff_hlID()		get highlight ID for diff mode at a position
+	matchadd()		define a pattern to highlight (a "match")
+	matcharg()		get info about |:match| arguments
+	matchdelete()		delete a match defined by |matchadd()| or a |:match| command
+	setmatches()		restore a list of matches saved by |getmatches()|
+</p>
+
+<h3 id="toc_1.2.16">2.16. Spelling</h3>
+<p>
+	spellbadword()		locate badly spelled word at or after cursor
+	spellsuggest()		return suggested spelling corrections
+	soundfold()		return the sound-a-like equivalent of a word
+</p>
+
+<h3 id="toc_1.2.17">2.17. History</h3>
+<p>
+	histadd()		add an item to a history
+	histdel()		delete an item from a history
+	histget()		get an item from a history
+	histnr()		get highest index of a history list
+</p>
+
+<h3 id="toc_1.2.18">2.18. Interactive</h3>
+<p>
+	browse()		put up a file requester
+	browsedir()		put up a directory requester
+	confirm()		let the user make a choice
+	getchar()		get a character from the user
+	getcharmod()		get modifiers for the last typed character
+	feedkeys()		put characters in the typeahead queue
+	input()			get a line from the user
+	inputlist()		let the user pick an entry from a list
+	inputsecret()		get a line from the user without showing it
+	inputdialog()		get a line from the user in a dialog
+	inputsave()		save and clear typeahead
+	inputrestore()		restore typeahead
+</p>
+
+<h3 id="toc_1.2.19">2.19. GUI</h3>
+<p>
+	getfontname()		get name of current font being used
+	getwinposx()		X position of the GUI Vim window
+	getwinposy()		Y position of the GUI Vim window
+</p>
+
+<h3 id="toc_1.2.20">2.20. Vim server</h3>
+<p>
+	serverlist()		return the list of server names
+	remote_send()		send command characters to a Vim server
+	remote_expr()		evaluate an expression in a Vim server
+	server2client()		send a reply to a client of a Vim server
+	remote_peek()		check if there is a reply from a Vim server
+	remote_read()		read a reply from a Vim server
+	foreground()		move the Vim window to the foreground
+	remote_foreground()	move the Vim server window to the foreground
+</p>
+
+<h3 id="toc_1.2.21">2.21. Window size and position</h3>
+<p>
+	winheight()		get height of a specific window
+	winwidth()		get width of a specific window
+	winrestcmd()		return command to restore window sizes
+	winsaveview()		get view of current window
+	winrestview()		restore saved view of current window
+</p>
+
+<h3 id="toc_1.2.22">2.22. Various</h3>
+<p>
+	mode()			get current editing mode
+	visualmode()		last visual mode used
+	hasmapto()		check if a mapping exists
+	mapcheck()		check if a matching mapping exists
+	maparg()		get rhs of a mapping
+	exists()		check if a variable, function, etc. exists
+	has()			check if a feature is supported in Vim
+	changenr()		return number of most recent change
+	cscope_connection()	check if a cscope connection exists
+	did_filetype()		check if a FileType autocommand was used
+	eventhandler()		check if invoked by an event handler
+	getpid()		get process ID of Vim
+</p>
+
+<p>
+	libcall()		call a function in an external library
+	libcallnr()		idem, returning a number
+</p>
+
+<p>
+	getreg()		get contents of a register
+	getregtype()		get type of a register
+	setreg()		set contents and type of a register
+</p>
+
+<p>
+	taglist()		get list of matching tags
+	tagfiles()		get a list of tags files
+</p>
+    </div>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'richard_ma'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+ 
+</body> 
+<link type="text/css" rel="stylesheet" href="syntaxhighlighter/css/SyntaxHighlighter.css"></link>
+<script language="javascript" src="syntaxhighlighter/js/shCore.js"></script>
+<script language="javascript" src="syntaxhighlighter/js/shBrushJava.js"></script>
+<script language="javascript" src="syntaxhighlighter/js/shBrushXml.js"></script>
+<script language="javascript" src="syntaxhighlighter/js/shBrushPython.js"></script>
+<script language="javascript" src="syntaxhighlighter/js/shBrushCpp.js"></script>
+<script language="javascript" src="syntaxhighlighter/js/shBrushSql.js"></script>
+<script language="javascript">
+dp.SyntaxHighlighter.ClipboardSwf = 'syntaxhighlighter/clipboard.swf';
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</html> 
