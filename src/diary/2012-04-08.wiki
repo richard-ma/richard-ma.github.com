@@ -1,0 +1,40 @@
+= HUSTOJ ArchLinux 安装说明 =
+
+== LAMP 安装 ==
+请参阅ArchLinux Wiki中的LAMP词条。
+
+请注意一定要安装GD模块，因为验证码是使用这个模块创建的。
+
+== PHP 设置 ==
+由于开发中使用了短标记，例如：
+::
+
+    <? some PHP code ?>
+
+所以必须将/etc/php/php.ini中的short_open_tag选项打开。
+
+== 支持语言 ==
+* C和C++支持，安装gcc即可
+* Pascal支持，安装fpc即可
+* Java支持目前没有找到合适的包
+* 文档说还支持Ruby、Python和Bash，不过还需要对Web系统做一些修改
+
+== ArchLinux 启动脚本 ==
+HUSTOJ默认提供的启动脚本不适用于ArchLinux，我自己写了一个，大家可以下载放入/etc/rc.d目录中使用。
+
+Download: http://code.google.com/p/hustoj/issues/detail?id=66
+
+== 编译 judge 模块 ==
+编译judge模块需要mysqlclient的头文件，在Debian中，相当于-dev的包。ArchLinux一般将开发用的头文件和编译好的二进制文件打包在一起，减少包数量。所以mysql安装后，头文件们就已经就位了，很方便。
+
+== 目录权限 ==
+* 如果想通过web上传，需要将/srv/httpd/web/upload目录设置成http用户可写权限。
+* /home/judge/目录下的所有文件，要chown成judge用户的。
+* /srv/httpd下的所有文件，最好chown成http组和http用户所有。
+
+== judged 模块原理 ==
+* judged模块分成judged和judged_client两个部分
+* judged作为后台进程运行，见识数据库，使用mysql提供的c语言头文件操作数据库
+* 当数据库有需要判的提交出现时，取出相关数据
+* judged创建judged_client（可能是多个）来跑测试用例
+* 真正的测试代码是judged_client运行的

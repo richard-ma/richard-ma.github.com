@@ -26,106 +26,96 @@
     <div id="content">
         <script type="text/javascript">
             // The following are highly recommended additional parameters. Remove the slashes in front to use.
-            var disqus_identifier = 'diary';
-            var disqus_url = 'http://richard-ma.github.com/diary.html';
+            var disqus_identifier = '2012-04-08';
+            var disqus_url = 'http://richard-ma.github.com/2012-04-08.html';
         </script>
 
-<h1 id="toc_1"> Diary</h1>
-<table>
-<tr>
-<td><a href="2012-04-19.html">2012-04-19</a></td>
-</tr>
-<tr>
-<td><a href="2012-03-30.html">2012-03-30</a></td>
-</tr>
-<tr>
-<td><a href="2012-04-08.html">2012-04-08</a></td>
-</tr>
-<tr>
-<td><a href="2012-03-25.html">2012-03-25</a></td>
-</tr>
-<tr>
-<td><a href="2012-03-27.html">2012-03-27</a></td>
-</tr>
-<tr>
-<td><a href="2012-03-17.html">2012-03-17</a></td>
-</tr>
-<tr>
-<td><a href="2012-03-12.html">2012-03-12</a></td>
-</tr>
-<tr>
-<td><a href="2012-03-11.html">2012-03-11</a></td>
-</tr>
-<tr>
-<td><a href="2012-02-22.html">2012-02-22</a></td>
-</tr>
-<tr>
-<td><a href="2012-01-02.html">2012-01-02</a></td>
-</tr>
-<tr>
-<td><a href="2012-01-01.html">2012-01-01</a></td>
-</tr>
-<tr>
-<td><a href="2011-11-26.html">2011-11-26</a></td>
-</tr>
-<tr>
-<td><a href="2011-11-23.html">2011-11-23</a></td>
-</tr>
-<tr>
-<td><a href="2011-11-17.html">2011-11-17</a></td>
-</tr>
-<tr>
-<td><a href="2011-11-14.html">2011-11-14</a></td>
-</tr>
-<tr>
-<td><a href="2011-11-13.html">2011-11-13</a></td>
-</tr>
-<tr>
-<td><a href="2011-11-10.html">2011-11-10</a></td>
-</tr>
-<tr>
-<td><a href="2011-11-09.html">2011-11-09</a></td>
-</tr>
-<tr>
-<td><a href="2011-10-29.html">2011-10-29</a></td>
-</tr>
-<tr>
-<td><a href="2011-10-27.html">2011-10-27</a></td>
-</tr>
-<tr>
-<td><a href="2011-10-24.html">2011-10-24</a></td>
-</tr>
-<tr>
-<td><a href="2011-10-20.html">2011-10-20</a></td>
-</tr>
-<tr>
-<td><a href="2011-10-14.html">2011-10-14</a></td>
-</tr>
-<tr>
-<td><a href="2011-10-11.html">2011-10-11</a></td>
-</tr>
-<tr>
-<td><a href="2011-10-09.html">2011-10-09</a></td>
-</tr>
-<tr>
-<td><a href="2011-10-07.html">2011-10-07</a></td>
-</tr>
-<tr>
-<td><a href="2011-10-06.html">2011-10-06</a></td>
-</tr>
-<tr>
-<td><a href="2011-10-05.html">2011-10-05</a></td>
-</tr>
-<tr>
-<td><a href="2011-10-04.html">2011-10-04</a></td>
-</tr>
-<tr>
-<td><a href="2011-04-09.html">2011-04-09</a></td>
-</tr>
-<tr>
-<td><a href="2011-04-03.html">2011-04-03</a></td>
-</tr>
-</table>
+<h1 id="toc_1"> HUSTOJ ArchLinux 安装说明</h1>
+
+<h2 id="toc_1.1">1. LAMP 安装</h2>
+<p>
+请参阅ArchLinux Wiki中的LAMP词条。
+</p>
+
+<p>
+请注意一定要安装GD模块，因为验证码是使用这个模块创建的。
+</p>
+
+<h2 id="toc_1.2">2. PHP 设置</h2>
+<p>
+由于开发中使用了短标记，例如：
+<dl>
+</dl>
+</p>
+<blockquote>
+&lt;? some PHP code ?&gt;
+</blockquote>
+
+<p>
+所以必须将/etc/php/php.ini中的short_open_tag选项打开。
+</p>
+
+<h2 id="toc_1.3">3. 支持语言</h2>
+<ul>
+<li>
+C和C++支持，安装gcc即可
+</li>
+<li>
+Pascal支持，安装fpc即可
+</li>
+<li>
+Java支持目前没有找到合适的包
+</li>
+<li>
+文档说还支持Ruby、Python和Bash，不过还需要对Web系统做一些修改
+</li>
+</ul>
+
+<h2 id="toc_1.4">4. ArchLinux 启动脚本</h2>
+<p>
+HUSTOJ默认提供的启动脚本不适用于ArchLinux，我自己写了一个，大家可以下载放入/etc/rc.d目录中使用。
+</p>
+
+<p>
+Download: <a href="http://code.google.com/p/hustoj/issues/detail?id=66">http://code.google.com/p/hustoj/issues/detail?id=66</a>
+</p>
+
+<h2 id="toc_1.5">5. 编译 judge 模块</h2>
+<p>
+编译judge模块需要mysqlclient的头文件，在Debian中，相当于-dev的包。ArchLinux一般将开发用的头文件和编译好的二进制文件打包在一起，减少包数量。所以mysql安装后，头文件们就已经就位了，很方便。
+</p>
+
+<h2 id="toc_1.6">6. 目录权限</h2>
+<ul>
+<li>
+如果想通过web上传，需要将/srv/httpd/web/upload目录设置成http用户可写权限。
+</li>
+<li>
+/home/judge/目录下的所有文件，要chown成judge用户的。
+</li>
+<li>
+/srv/httpd下的所有文件，最好chown成http组和http用户所有。
+</li>
+</ul>
+
+<h2 id="toc_1.7">7. judged 模块原理</h2>
+<ul>
+<li>
+judged模块分成judged和judged_client两个部分
+</li>
+<li>
+judged作为后台进程运行，见识数据库，使用mysql提供的c语言头文件操作数据库
+</li>
+<li>
+当数据库有需要判的提交出现时，取出相关数据
+</li>
+<li>
+judged创建judged_client（可能是多个）来跑测试用例
+</li>
+<li>
+真正的测试代码是judged_client运行的
+</li>
+</ul>
     </div>
 
     <div id="disqus_thread"></div>
