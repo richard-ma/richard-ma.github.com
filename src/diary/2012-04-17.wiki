@@ -1,0 +1,3 @@
+= RoR =
+# 安装时需要make
+# 运行rails时需要nodejs或其他js引擎
