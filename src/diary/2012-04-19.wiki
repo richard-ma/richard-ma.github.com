@@ -1,0 +1,33 @@
+=ArchLinux 配置ruby on rails环境=
+
+经过两天的摸索，终于在一台破机器上把ror环境搭建起来了，做个笔记。
+
+== 安装ruby ==
+
+ArchLinux下的包的原则就是减少包的数量，将runtime和dev打包在一起。所以一旦你有了一个runtime，也就有了一个开发环境。
+
+{{{ class="brush:bash"
+sudo pacman -S ruby
+}}}
+
+安装好ruby后，gem工具也就安装好了。默认的ruby是1.9版本，ArchLinux就是追新啊，图稳定就用其他发行版吧，滚动升级没法子啊。
+
+== 下载gem ==
+
+gem其实就是ruby写成的一个一个软件，重用性很好。当你需要某些系统的时候，划分好子系统，很多gem包就提供完整的子系统，像搭积木一样安装gem，整个系统就搭建起来了。有时候真的不需要一行代码，几个安装命令，一个简易的blog就可以使用了。当然，我这里说的简易就是对博文的CURD操作是没啥问题，没有美观等等需求。
+
+由于gem项目的所有包都托管在亚马逊S3主机上，而我朝为了给我们提供一个和谐的网络环境，对S3主机进行了过滤。下载一个小gem包便秘的速度让我无法忍受带宽浪费的巨大痛苦。这里要感谢宋同学，为我点亮一盏明灯，更要感谢taobao.org团队的贡献。
+
+taobao为我们提供了一个完整的gem镜像，地址为http://ruby.taobao.org/
+
+== 更新gem ==
+
+ArchLinux的wiki做的确实不错，请大家跟随这篇说明进行安装：https://wiki.archlinux.org/index.php/Ruby
+
+== 安装rails ==
+
+rails是用ruby语言写成的一个framework，为快速开发网站提供了一个基础，也是ruby语言能够风靡的一个重要理由。据说PHP的Zend Framework就是参考了rails的设计思路。目前还不太熟悉，所以不乱吹了。
+
+安装方法ArchLinux中也有说明，请移步：https://wiki.archlinux.org/index.php/Ruby_on_Rails
+
+*rails需要一个JS引擎来执行部分代码，所以这里需要用pacman安装nodejs，wiki文档中并没有提到这一点。*

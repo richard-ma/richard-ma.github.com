@@ -1,0 +1,6 @@
+= vim script =
+* glob可以展开目录 **为任意后续名称 *为任意字符: glob("/home/ri**/*.c")
+* 命令中要用到变量的，只能组装成一个字符串，然后用exec执行: exec "source ".file_name
+
+= Bash =
+* basename可以分割目录和文件名，也可以用来分割扩展名：basename file.ext .ext

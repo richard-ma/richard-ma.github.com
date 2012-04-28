@@ -26,106 +26,63 @@
     <div id="content">
         <script type="text/javascript">
             // The following are highly recommended additional parameters. Remove the slashes in front to use.
-            var disqus_identifier = 'diary';
-            var disqus_url = 'http://richard-ma.github.com/diary.html';
+            var disqus_identifier = '2012-04-19';
+            var disqus_url = 'http://richard-ma.github.com/2012-04-19.html';
         </script>
 
-<h1 id="toc_1"> Diary</h1>
-<table>
-<tr>
-<td><a href="2012-04-17.html">2012-04-17</a></td>
-</tr>
-<tr>
-<td><a href="2012-04-19.html">2012-04-19</a></td>
-</tr>
-<tr>
-<td><a href="2012-03-30.html">2012-03-30</a></td>
-</tr>
-<tr>
-<td><a href="2012-04-08.html">2012-04-08</a></td>
-</tr>
-<tr>
-<td><a href="2012-03-25.html">2012-03-25</a></td>
-</tr>
-<tr>
-<td><a href="2012-03-17.html">2012-03-17</a></td>
-</tr>
-<tr>
-<td><a href="2012-03-12.html">2012-03-12</a></td>
-</tr>
-<tr>
-<td><a href="2012-03-11.html">2012-03-11</a></td>
-</tr>
-<tr>
-<td><a href="2012-02-22.html">2012-02-22</a></td>
-</tr>
-<tr>
-<td><a href="2012-01-02.html">2012-01-02</a></td>
-</tr>
-<tr>
-<td><a href="2012-01-01.html">2012-01-01</a></td>
-</tr>
-<tr>
-<td><a href="2011-11-26.html">2011-11-26</a></td>
-</tr>
-<tr>
-<td><a href="2011-11-23.html">2011-11-23</a></td>
-</tr>
-<tr>
-<td><a href="2011-11-17.html">2011-11-17</a></td>
-</tr>
-<tr>
-<td><a href="2011-11-14.html">2011-11-14</a></td>
-</tr>
-<tr>
-<td><a href="2011-11-13.html">2011-11-13</a></td>
-</tr>
-<tr>
-<td><a href="2011-11-10.html">2011-11-10</a></td>
-</tr>
-<tr>
-<td><a href="2011-11-09.html">2011-11-09</a></td>
-</tr>
-<tr>
-<td><a href="2011-10-29.html">2011-10-29</a></td>
-</tr>
-<tr>
-<td><a href="2011-10-27.html">2011-10-27</a></td>
-</tr>
-<tr>
-<td><a href="2011-10-24.html">2011-10-24</a></td>
-</tr>
-<tr>
-<td><a href="2011-10-20.html">2011-10-20</a></td>
-</tr>
-<tr>
-<td><a href="2011-10-14.html">2011-10-14</a></td>
-</tr>
-<tr>
-<td><a href="2011-10-11.html">2011-10-11</a></td>
-</tr>
-<tr>
-<td><a href="2011-10-09.html">2011-10-09</a></td>
-</tr>
-<tr>
-<td><a href="2011-10-07.html">2011-10-07</a></td>
-</tr>
-<tr>
-<td><a href="2011-10-06.html">2011-10-06</a></td>
-</tr>
-<tr>
-<td><a href="2011-10-05.html">2011-10-05</a></td>
-</tr>
-<tr>
-<td><a href="2011-10-04.html">2011-10-04</a></td>
-</tr>
-<tr>
-<td><a href="2011-04-09.html">2011-04-09</a></td>
-</tr>
-<tr>
-<td><a href="2011-04-03.html">2011-04-03</a></td>
-</tr>
-</table>
+<h1 id="toc_1"> ArchLinux 配置ruby on rails环境</h1>
+
+<p>
+经过两天的摸索，终于在一台破机器上把ror环境搭建起来了，做个笔记。
+</p>
+
+<h2 id="toc_1.1">1. 安装ruby</h2>
+
+<p>
+ArchLinux下的包的原则就是减少包的数量，将runtime和dev打包在一起。所以一旦你有了一个runtime，也就有了一个开发环境。
+</p>
+
+<pre  class="brush:bash">
+sudo pacman -S ruby
+</pre>
+
+<p>
+安装好ruby后，gem工具也就安装好了。默认的ruby是1.9版本，ArchLinux就是追新啊，图稳定就用其他发行版吧，滚动升级没法子啊。
+</p>
+
+<h2 id="toc_1.2">2. 下载gem</h2>
+
+<p>
+gem其实就是ruby写成的一个一个软件，重用性很好。当你需要某些系统的时候，划分好子系统，很多gem包就提供完整的子系统，像搭积木一样安装gem，整个系统就搭建起来了。有时候真的不需要一行代码，几个安装命令，一个简易的blog就可以使用了。当然，我这里说的简易就是对博文的CURD操作是没啥问题，没有美观等等需求。
+</p>
+
+<p>
+由于gem项目的所有包都托管在亚马逊S3主机上，而我朝为了给我们提供一个和谐的网络环境，对S3主机进行了过滤。下载一个小gem包便秘的速度让我无法忍受带宽浪费的巨大痛苦。这里要感谢宋同学，为我点亮一盏明灯，更要感谢taobao.org团队的贡献。
+</p>
+
+<p>
+taobao为我们提供了一个完整的gem镜像，地址为<a href="http://ruby.taobao.org/">http://ruby.taobao.org/</a>
+</p>
+
+<h2 id="toc_1.3">3. 更新gem</h2>
+
+<p>
+ArchLinux的wiki做的确实不错，请大家跟随这篇说明进行安装：<a href="https://wiki.archlinux.org/index.php/Ruby">https://wiki.archlinux.org/index.php/Ruby</a>
+</p>
+
+<h2 id="toc_1.4">4. 安装rails</h2>
+
+<p>
+rails是用ruby语言写成的一个framework，为快速开发网站提供了一个基础，也是ruby语言能够风靡的一个重要理由。据说PHP的Zend Framework就是参考了rails的设计思路。目前还不太熟悉，所以不乱吹了。
+</p>
+
+<p>
+安装方法ArchLinux中也有说明，请移步：<a href="https://wiki.archlinux.org/index.php/Ruby_on_Rails">https://wiki.archlinux.org/index.php/Ruby_on_Rails</a>
+</p>
+
+<p>
+<strong>rails需要一个JS引擎来执行部分代码，所以这里需要用pacman安装nodejs，wiki文档中并没有提到这一点。</strong>
+</p>
     </div>
 
     <div id="disqus_thread"></div>
