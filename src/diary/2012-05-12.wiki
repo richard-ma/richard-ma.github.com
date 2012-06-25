@@ -1,0 +1,25 @@
+=GDB DEBUG=
+
+* core dump时会在当前目录下创建一个core文件，帮助调试
+* core有时不会创建是由于ulimit限制，将ulimit设置为unlimited
+    * ulimit -c 察看目前限制
+    * ulimit -c unlimited 设置为不限制core文件空间占用
+* gdb可以同时加载可执行文件和core文件进行调试
+    * 编译时记得加上-g选项
+    * gdb ./a.out core 进行调试
+    * (gdb)print输出变量值
+    * (gdb)backtrace输出出错时的堆栈信息
+* 使用gprof做性能测试
+    * 编译加上-pg参数
+    * 使用gprof a.out察看性能分析
+* 使用gcov看代码执行情况
+    * 编译加上-fprofile-arcs -ftest-coverage参数
+    * 使用gcov source.c察看代码执行比例
+    * 打开gcov文件察看没行代码执行次数
+* 其他工具
+    * nm 察看可执行文件中的符号表
+    * strip 删除可执行文件中的符号表
+    * as 汇编器
+    * ld 链接器
+    * ldd 察看使用的动态链接库
+    * ar 创建静态链接库
