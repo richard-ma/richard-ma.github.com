@@ -1,0 +1,166 @@
+= Githug =
+
+== 安装 ==
+$ gem install githug
+
+$ githug
+
+选择y，然后当前目录下会出现一个名为git_hug的目录，进入这个目录就可以做任务了。
+
+$ cd git_hug
+
+== 使用 ==
+* githug play 检查当前状态，确认是否过关，当你完成操作的时候运行这个。
+* githug hint 当你毫无思路的时候，这里会有一些简单的提示，不过只是给你指明方向，不是答案。
+* githug reset 当你将目录文件弄得乱七八糟，不要怕，这个会帮你收拾到本关卡的初始状态。
+
+== 攻略（还是先自己试试吧） ==
+=== Level 1 ===
+
+$ git init
+
+=== Level 2 ===
+
+$ git add README
+
+=== Level 3 ===
+
+$ git commit -am 'init commit'
+
+=== Level 4 ===
+
+$ git config user.name "richard_ma"
+
+$ git config user.email "richard_ma@richardma.org"
+
+=== Level 5 ===
+
+$ git clone https://github.com/Gazler/cloneme
+
+=== Level 6 ===
+
+$ git clone https://github.com/Gazler/cloneme my_cloned_repo
+
+=== Level 7 ===
+
+$ echo '*.swp' >> .gitignore
+
+=== Level 8 ===
+
+$ git status
+
+=== Level 9 ===
+
+$ git rm deleteme.rb
+
+=== Level 10 ===
+
+$ git rm --cached deleteme.rb
+
+=== Level 11 ===
+
+$ git mv oldfile.txt newfile.txt
+
+=== Level 12 ===
+
+$ git log
+
+=== Level 13===
+
+$ git tag new_tag
+
+=== Level 14 ===
+
+$ git add forgotten_file.rb
+
+$ git ci --amend -m 'add forgotten file'
+
+=== Level 15 ===
+
+$ git reset HEAD to_commit_second.rb
+
+=== Level 16 ===
+
+$ git checkout config.rb
+
+=== Level 17 ===
+
+$ git remote
+
+=== Level 18 ===
+
+$ git remote -v
+
+=== Level 19 ===
+
+$ git pull origin master
+
+=== Level 20 ===
+
+$ git remote add origin https://github.com/githug/githug
+
+=== Level 21 ===
+
+$ git diff
+
+=== Level 22 ===
+
+$ git blame config.rb
+
+=== Level 23 ===
+
+$ git branch test_code
+
+=== Level 24 ===
+
+$ git branch my_branch
+
+$ git checkout my_branch
+
+=== Level 25 ===
+
+$ git branch test_branch HEAD~1
+
+=== Level 26 ===
+
+$ git merge feature
+
+=== Level 27 ===
+
+$ git cherry-pick ``git log new-fature | grep '^commit' | head -n 3 | tail -n 1 | cut -d' ' -f2``
+
+=== Level 28 ===
+
+$ git rebase -i HEAD~2
+
+=== Level 29 ===
+
+$ git rebase -i HEAD~3
+
+=== Level 30 ===
+
+$ git merge --squash long-feature-branch
+
+$ git commit -am 'Merge branch long-feature-branch'
+
+=== Level 31 ===
+
+$ git rebase -i HEAD~2
+
+=== Level 32 ===
+
+$ git add feature.rb -p
+
+=== Level 33 ===
+
+$ git reflog
+
+$ git checkout slove_world_hunger
+
+=== Level 34 ===
+
+$ git revert HEAD~1
+
+=== Level 35 ===
+
+这是最后一关，而且是Endless模式，哈哈。
