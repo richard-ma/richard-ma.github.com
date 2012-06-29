@@ -1,0 +1,47 @@
+= Rails Recipes (Rails 3 version) =
+
+== 给数据保存历史版本 ==
+
+在Chapter model中打开acts_as_versioned时需要指定表名称
+
+acts_as versioned :table_name => :post_versions
+
+https://github.com/technoweenie/acts_as_versioned/issues/5
+
+初级使用教程
+http://blog.coryfoy.com/2009/05/acts_as_versioned-getting-started/
+
+== 让Model直接进行简单的统计计算 ==
+
+model 直接可以使用的计算方法
+
+* count
+* sum
+* average
+* maximum
+* minimum
+
+== 简化数据库配置 == 
+
+将数据库信息重复的部分可以写在一起。
+
+defaults: &defaults
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  socket: /tmp/mysql.sock
+  pool: 5
+  username: root
+  password: secret
+
+development:
+  database: dry_up_development
+  <<: *defaults
+
+test:
+  databse: dry_up_test
+  <<: *defaults
+
+production:
+  database: dry_up_production
+  <<: *defaults

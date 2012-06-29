@@ -14,6 +14,9 @@
 * <Leader>wr 重命名链接
 * <Leader>wt 打开或关闭列表项
 
+= 读书笔记 =
+* [[Rials Recipes (Rails 3 version)]]
+
 =数学=
 ==三年级==
 * [[加法原理和乘法原理]]
