@@ -1,0 +1,123 @@
+= 在Linux下使用POSIX标准 =
+
+== 前言 ==
+今天在看UNIX环境高级编程（第二版），里面提到一些POSIX标准的宏定义，遂想写个程序看看数值。这就是大部分问题发生的起因：蛋疼。
+
+书中23页表2.3提到一些POSIX标准的常量，例如命令行参数长度最大值之类的。写了一个程序如下：
+
+{{{ class="brush:c"
+
+#include <stdio.h>
+#include <limits.h>
+
+int print_const (const char *msg, int val)
+{
+    printf("%s: %d\n", msg, val);
+
+    return 0;
+}
+
+int main (int argc, char const* argv[])
+{
+    print_const("_POSIX_ARG_MAX", _POSIX_ARG_MAX);
+    print_const("_POSIX_CHILD_MAX", _POSIX_CHILD_MAX);
+    print_const("_POSIX_LINK_MAX", _POSIX_LINK_MAX);
+    print_const("_POSIX_MAX_CANON", _POSIX_MAX_CANON);
+    print_const("_POSIX_MAX_INPUT", _POSIX_MAX_INPUT);
+    print_const("_POSIX_NAME_MAX", _POSIX_NAME_MAX);
+    print_const("_POSIX_NGROUPS_MAX", _POSIX_NGROUPS_MAX);
+    print_const("_POSIX_OPEN_MAX", _POSIX_OPEN_MAX);
+    print_const("_POSIX_PATH_MAX", _POSIX_PATH_MAX);
+    print_const("_POSIX_PIPE_BUF", _POSIX_PIPE_BUF);
+    print_const("_POSIX_SSIZE_MAX", _POSIX_SSIZE_MAX);
+    print_const("_POSIX_STREAM_MAX", _POSIX_STREAM_MAX);
+    print_const("_POSIX_TZNAME_MAX", _POSIX_TZNAME_MAX);
+
+    return 0;
+}
+
+}}}
+
+编译时报错，说这些宏定义都找不到定义。很显然，这是Linux和POSIX标准兼容的问题，关键是找到这些定义的头文件，才能顺利通过编译。
+
+== Linux体系 ==
+
+Linux有自己一套相关的体系，头文件位置在 _/usr/include/linux/limits.h_ ，包含头文件的时候写 _linux/limits.h_ 即可。
+
+而且宏定义的名字也不同，所以相对与POSIX来说，Linux是有自己的一套体系的。
+
+{{{ class="brush:c"
+
+#define NGROUPS_MAX    65536	/* supplemental group IDs are available */
+#define ARG_MAX       131072	/* # bytes of args + environ for exec() */
+#define LINK_MAX         127	/* # links a file may have */
+#define MAX_CANON        255	/* size of the canonical input queue */
+#define MAX_INPUT        255	/* size of the type-ahead buffer */
+#define NAME_MAX         255	/* # chars in a file name */
+#define PATH_MAX        4096	/* # chars in a path name including nul */
+#define PIPE_BUF        4096	/* # bytes in atomic write to a pipe */
+
+/* 这三个没有对应的POSIX宏 */
+#define XATTR_NAME_MAX   255	/* # chars in an extended attribute name */
+#define XATTR_SIZE_MAX 65536	/* size of an extended attribute value (64k) */
+#define XATTR_LIST_MAX 65536	/* size of extended attribute namelist (64k) */
+
+}}}
+
+如果想启用POSIX标准的宏定义呢？看POSIX标准，这些定义应该在 _limits.h_ 这个头文件中。打开 _/usr/include/limits.h_ 后发现，这和Solaris中的 _limits.h_ 内容是不同的，算是Linux自己做的一个变通吧。Linux中的 _limits.h_ 中有这样一段:
+
+{{{ class="brush:c"
+
+#ifdef	__USE_POSIX
+/* POSIX adds things to <limits.h>.  */
+# include <bits/posix1_lim.h>
+#endif
+
+}}}
+
+当定义了__USE_POSIX后，则会包含一个 _bits/posix1_lim.h_ 的头文件。这头文件在 _/usr/include/i386-linux-gnu/bits/posix1_lim.h_ 。这个文件中定义了POSIX标准中的那些宏定义。
+
+所以要使用这些宏定义，在Linux系统下应该做到：
+
+* 在包含任何POSIX相关的头文件前，定义__USE_POSIX
+* #define __USE_POSIX
+
+== 最终修改的代码 ==
+
+{{{ class="brush:c"
+
+#include <stdio.h>
+
+#define __USE_POSIX
+#include <limits.h>
+
+int print_const (const char *msg, int val)
+{
+    printf("%s: %d\n", msg, val);
+
+    return 0;
+}
+
+int main (int argc, char const* argv[])
+{
+#ifdef __USE_POSIX
+    printf("** __USE_POSIX has been defined.\n");
+    print_const("_POSIX_ARG_MAX", _POSIX_ARG_MAX);
+    print_const("_POSIX_CHILD_MAX", _POSIX_CHILD_MAX);
+    print_const("_POSIX_LINK_MAX", _POSIX_LINK_MAX);
+    print_const("_POSIX_MAX_CANON", _POSIX_MAX_CANON);
+    print_const("_POSIX_MAX_INPUT", _POSIX_MAX_INPUT);
+    print_const("_POSIX_NAME_MAX", _POSIX_NAME_MAX);
+    print_const("_POSIX_NGROUPS_MAX", _POSIX_NGROUPS_MAX);
+    print_const("_POSIX_OPEN_MAX", _POSIX_OPEN_MAX);
+    print_const("_POSIX_PATH_MAX", _POSIX_PATH_MAX);
+    print_const("_POSIX_PIPE_BUF", _POSIX_PIPE_BUF);
+    print_const("_POSIX_SSIZE_MAX", _POSIX_SSIZE_MAX);
+    print_const("_POSIX_STREAM_MAX", _POSIX_STREAM_MAX);
+    print_const("_POSIX_TZNAME_MAX", _POSIX_TZNAME_MAX);
+#endif
+
+    return 0;
+}
+
+}}}
