@@ -55,6 +55,51 @@
 # 3983 算24，测试用例只有一个（考虑快算24算法，穷举？）
 
 = 并查集 =
+
+{{{ class="brush:c"
+
+int f[n];
+int r[n];
+
+int set_init()
+{
+    int i;
+    
+    for (i = 0; i < n; i++) {
+        f[i] = i;
+        r[i] = 0;
+    }
+
+    return 0;
+}
+
+int set_find(int n)
+{
+    if (f[n] != n) f[n] = set_find(f[n]);
+
+    return f[n];
+}
+
+int set_union(int x, int y)
+{
+    int a = set_find(x);
+    int b = set_find(y);
+
+    if (a == b) {
+        return 0;
+    } else if (r[a] <= r[b]) {
+        f[a] = b;
+        r[b] += r[a];
+    } else {
+        r[b] = a;
+        r[a] += r[b];
+    }
+
+    return 1;
+}
+
+}}}
+
 # 2524 基础并查集
 # 1611 基础并查集
 # 2492 对虫子性别计算偏移量的并查集
